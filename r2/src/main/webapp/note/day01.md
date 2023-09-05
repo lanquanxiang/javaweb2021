@@ -7,6 +7,7 @@
 4. src/main/webapp/WEB-INF：放置项目的配置信息（此文件夹用户不能直接访问）
 5. src/main/webapp/WEB-INF/lib：放jar包（JDBC）
 6. src/main/webapp/WEB-INF/web.xml ：项目的配置文件（欢迎页面、过滤器、server映射、框架、全局信息）
+7. eclipse旧版本 webapp==webcontent
 ## 2. JDK eclipse tomcat mysql+sqlyog 
 1. tomcat 默认端口8080
 2. mysql 默认端口3306（机房mysql8.0版本 端口3308 root 123456）
@@ -16,3 +17,44 @@
 解决：
 	办法1：找到这个占用端口的进程，结束该进程之后重新运行。
 	办法2：在tomcat的配置文件中更换其他端口。
+## 3. 专有名词（了解）
+1. JavaSE：Java标准开发
+2. JavaEE：Java企业级开发
+3. JavaME：Java移动开发（嵌入手机上的程序）
+## 4. SDK、JDK、JRE、JVM
+1. SDK：软件开发工具包
+2. JDK：Java开发工具包
+3. JRE：Java运行时环境
+4. JVM：Java虚拟机
+5. java.exe执行程序 javac.exe 编译程序  javadoc.exe生成帮助文档 jar.exe打包程序
+## 5. B/S和C/S
+1. B/S 浏览器和服务器（√）
+2. C/S 客户端和服务器
+## 6. HTTP的版本特点
+1. HTTP无状态协议（为了能够记住某些数据cookie和session）
+2. HTTP1.0 一次连接一次交互
+3. HTTP1.1 一次连接多次交互（效率更高）
+## 7. HTTP消息（了解、熟悉）
+### 1. 请求消息
+1. MIME：多用途邮件互联网扩展类型（text、image、audio、video、message、application、multipart）
+2. accept：客户端能够接收的类型
+3. host：请求的主机地址（域名、ip地址：端口号）
+4. referer：【重要】防盗链
+5. cookie：保存信息
+### 2. 响应信息
+1. content-type：告知客户端响应的内容类型（附带编码）
+2. cache-control:no-cache; 告知客户端此响应内容不能缓存
+3. refresh：定时刷新（定时跳转）
+
+
+
+
+
+
+
+
+
+
+
+
+
