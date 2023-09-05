@@ -5,7 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>首页</title>
-<link rel="stylesheet" type="text/css" href="css/my.css" />
 </head>
 <body>
 <jsp:include page="menu.jsp"/>

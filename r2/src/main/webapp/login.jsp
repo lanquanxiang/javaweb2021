@@ -1,11 +1,14 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title></title>
-	</head>
-	<body>
-		<h1 class="title">用户登录</h1>
+<head>
+<meta charset="UTF-8">
+<title>登录</title>
+</head>
+<body>
+<jsp:include page="menu.jsp"/>
+<h1 class="title">用户登录</h1>
 		<form action="" method="post">
 			<table>
 				<tr>
@@ -22,9 +25,9 @@
 				</tr>
 				<tr>
 					<td></td>
-					<td>
+					<td style="position: relative;">
 						<input type="checkbox">密码保存7天
-						<a href="">忘记密码</a>
+						<a href="" style="position: absolute;right: 0;">忘记密码</a>
 					</td>
 				</tr>
 				<tr>
@@ -35,5 +38,5 @@
 				</tr>
 			</table>
 		</form>
-	</body>
+</body>
 </html>

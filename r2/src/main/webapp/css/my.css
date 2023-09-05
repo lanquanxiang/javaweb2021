@@ -63,3 +63,14 @@ ul>li {
 	text-align: center;
 
 }
+table{
+	display:fixed;
+	margin:auto;
+}
+table input[type="text"],table input[type="password"]{
+	width:250px;
+}
+table input[type="submit"]{
+	width:100px;
+	height:25px;
+}
