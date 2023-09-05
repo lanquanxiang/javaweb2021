@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>首页</title>
+		<style type="text/css">
+			*{
+				padding: 0px;
+				margin: 0px;
+			}
+			.header,.footer{
+				height: 50px;
+				background-color: #cdcdcd;
+			}
+			.footer{
+				position: absolute;
+				bottom: 0px;
+				width: 100%;
+			}
+			.header a{
+				text-decoration: none;
+				color: blue;
+			}
+			ul>li{
+				display: inline-block;
+				line-height: 50px;
+				padding: 0px 10px;
+			}
+			
+			.menu{
+				color: red;
+				position: relative; /*子绝父相*/
+			}
+			.menu ul{
+				display: none;
+			}
+			.menu:hover ul{
+				display: block;
+				position: absolute;
+				width: 100px;
+			}
+			.menu>ul>li{
+				display: block;
+				line-height: 30px;
+				padding: 0px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="header">
+			<a href="" style="float: left;"><img src="img/logo.png" alt="" style="height: 50px;"></a>
+			
+			<ul style="float: left;">
+				<li><a href="">文件列表</a></li>
+				<li class="menu">分类查看
+					<ul>
+						<li><a href="">法律法规</a></li>
+						<li><a href="">管理办法</a></li>
+						<li><a href="">决定条例</a></li>
+						<li><a href="">细则解释</a></li>
+						<li><a href="">规范指南</a></li>
+						<li><a href="">其他文件</a></li>
+					</ul>
+				
+				
+				</li>
+				<li class="menu">文件分享
+					<ul>
+						<li><a href="">分享文件</a></li>
+						<li><a href="">我的分享</a></li>
+					</ul>
+				</li>
+				<li>文件检索
+					<form action="" method="post" style="display: inline-block;">
+						<input type="text" style="line-height: 25px;"/>
+						<input type="image" src="img/search.png" style="height: 20px;vertical-align: middle;"/>
+					</form>
+				</li>
+			</ul>
+			
+			
+		</div>
+		
+		
+		<div class="footer"></div>
+	</body>
+</html>
