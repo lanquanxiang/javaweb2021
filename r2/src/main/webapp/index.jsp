@@ -4,9 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>首页</title>
+<link rel="stylesheet" type="text/css" href="css/my.css" />
 </head>
 <body>
-123
+<jsp:include page="menu.jsp"/>
+<h1 class="title">欢迎使用文件分享系统</h1>
 </body>
 </html>

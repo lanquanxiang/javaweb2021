@@ -4,46 +4,7 @@
 		<meta charset="utf-8">
 		<title>首页</title>
 		<style type="text/css">
-			*{
-				padding: 0px;
-				margin: 0px;
-			}
-			.header,.footer{
-				height: 50px;
-				background-color: #cdcdcd;
-			}
-			.footer{
-				position: absolute;
-				bottom: 0px;
-				width: 100%;
-			}
-			.header a{
-				text-decoration: none;
-				color: blue;
-			}
-			ul>li{
-				display: inline-block;
-				line-height: 50px;
-				padding: 0px 10px;
-			}
 			
-			.menu{
-				color: red;
-				position: relative; /*子绝父相*/
-			}
-			.menu ul{
-				display: none;
-			}
-			.menu:hover ul{
-				display: block;
-				position: absolute;
-				width: 100px;
-			}
-			.menu>ul>li{
-				display: block;
-				line-height: 30px;
-				padding: 0px;
-			}
 		</style>
 	</head>
 	<body>
@@ -77,11 +38,26 @@
 					</form>
 				</li>
 			</ul>
-			
-			
+			<ul style="float: right;">
+				<li class="menu">个人中心
+					<ul>
+						<li><a href="">个人信息</a></li>
+						<li><a href="">修改密码</a></li>
+						<li><a href="">注销账户</a></li>
+					</ul>
+				</li>
+				<li><a href="">退出</a></li>
+				<li><a href="">登录</a></li>
+				<li><a href="">注册</a></li>
+			</ul>
 		</div>
 		
+		<h1 class="title">欢迎使用文件分享系统</h1>
 		
-		<div class="footer"></div>
+		<div class="footer">
+			<span>攀枝花学院&copy;<b>2021级软件工程2班</b> 2023</span>
+			<span>网站访问量：5</span>
+			<span>当前登录人数：1</span>
+		</div>
 	</body>
 </html>

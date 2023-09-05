@@ -1,0 +1,65 @@
+@charset "UTF-8";
+
+* {
+	padding: 0px;
+	margin: 0px;
+}
+
+.header,
+.footer {
+	height: 50px;
+	background-color: #cdcdcd;
+}
+
+.footer {
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+}
+
+.header a {
+	text-decoration: none;
+	color: blue;
+}
+
+ul>li {
+	display: inline-block;
+	line-height: 50px;
+	padding: 0px 10px;
+}
+
+.menu {
+	color: red;
+	position: relative;
+	/*子绝父相*/
+}
+
+.menu ul {
+	display: none;
+}
+
+.menu:hover ul {
+	display: block;
+	position: absolute;
+	width: 100px;
+}
+
+.menu>ul>li {
+	display: block;
+	line-height: 30px;
+	padding: 0px;
+}
+
+.footer {
+	text-align: center;
+}
+
+.footer span {
+	line-height: 50px;
+}
+
+.title {
+	padding: 50px;
+	text-align: center;
+
+}
