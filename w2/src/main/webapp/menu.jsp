@@ -19,6 +19,7 @@
 		position: absolute;
 		bottom: 0px;
 		width: 100%;
+		text-align: center;
 	}
 	.header a{
 		color: blue;
@@ -45,6 +46,10 @@
 		line-height: 30px;
 		list-style-type: none;
 	}
+	.footer>span{
+		
+		line-height: 50px;
+	}
 </style>
 </head>
 <body>
@@ -61,9 +66,13 @@
 				<li><a href="">规范指南</a></li>
 				<li><a href="">其他文件</a></li>
 			</ul>
-		
 		</li>
-		<li>文件分享</li>
+		<li class="menu">文件分享
+			<ul>
+				<li><a href="">分享文件</a></li>
+				<li><a href="">我的分享</a></li>
+			</ul>
+		</li>
 		<li>文件检索
 			<form action="" method="get" style="display: inline-block;">
 				<input type="text" style="height: 25px;"/>
@@ -71,9 +80,24 @@
 			</form>
 		</li>
 	</ul>
-	
+	<ul style="float: right;">
+		<li class="menu">个人中心
+			<ul>
+				<li><a href="">个人信息</a></li>
+				<li><a href="">修改密码</a></li>
+				<li><a href="">注销账户</a></li>
+			</ul>
+		</li>
+		<li><a href="">退出</a></li>
+		<li><a href="">登录</a></li>
+		<li><a href="">注册</a></li>
+	</ul>
 </div>
 
-<div class="footer"></div>
+<div class="footer">
+	<span>攀枝花学院&copy;<b>2021级网络工程2班</b> 2023</span>
+	<span>网站访问量：5</span>
+	<span>当前在线人数：1</span>	
+</div>
 </body>
 </html>
