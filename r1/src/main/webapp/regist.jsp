@@ -5,6 +5,15 @@
 <head>
 <meta charset="UTF-8">
 <title>注册</title>
+<style type="text/css">
+	form input[type='text'],form input[type='password']{
+		width:300px;
+	}
+	form input[type='submit']{
+		width:100px;
+		height:30px;
+	}
+</style>
 </head>
 <body>
 <jsp:include page="/menu.jsp"></jsp:include>
@@ -47,7 +56,7 @@
 			</td>
 		</tr>
 		<tr>			
-			<td colspan="2">
+			<td colspan="2" style="text-align: center;">
 				<input type="submit" value="注册" />
 			</td>
 		</tr>

@@ -61,6 +61,7 @@ request.getParameterValues​(java.lang.String name)
 ```
 setCharacterEncoding​(java.lang.String encoding)
 1. 此方法只适用于post提交乱码
+2. 
 ```
 ### 2. response
 1. setStatus() 设置状态码

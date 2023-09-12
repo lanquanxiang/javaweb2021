@@ -5,6 +5,15 @@
 <head>
 <meta charset="UTF-8">
 <title>注册结果</title>
+<style type="text/css">
+	input[type='text'],input[type='password']{
+		width:300px;
+	}
+	input[type='submit']{
+		width:100px;
+		height:30px;
+	}
+</style>
 </head>
 <body>
 <%
@@ -34,29 +43,24 @@
 		<tr>
 			<td>性别</td>
 			<td>
-				<input type="radio" name="gender" checked="checked"/>男
-				<input type="radio" name="gender"/>女
+				
 			</td>
 		</tr>
 		<tr>
 			<td>关注类型</td>
 			<td>
-				<input type="checkbox" name="type" checked="checked"/>法律法规
-				<input type="checkbox" name="type"/>管理办法
-				<input type="checkbox" name="type"/>决定条例
-				<input type="checkbox" name="type"/>细则解释
-				<input type="checkbox" name="type"/>规范指南				
+							
 			</td>
 		</tr>
 		<tr>
 			<td>验证码</td>
-			<td><input type="text" name="code"/>
-				<img src="img/captcha.jpg" style="height: 25px;">
+			<td>
+				
 			</td>
 		</tr>
 		<tr>			
-			<td colspan="2">
-				<input type="submit" value="注册" />
+			<td colspan="2" style="text-align: center;">
+				<input type="submit" value="确定" />
 			</td>
 		</tr>
 	</table>
