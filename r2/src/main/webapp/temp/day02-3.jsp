@@ -4,13 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>首页</title>
+<title>输出示例</title>
 </head>
 <body>
+你好1!
 <%
-	//response.sendError(500);
+	out.print("你好2!");
+	response.getWriter().print("你好3!");
 %>
-<jsp:include page="menu.jsp"/>
-<h1 class="title">欢迎使用文件分享系统</h1>
 </body>
 </html>
