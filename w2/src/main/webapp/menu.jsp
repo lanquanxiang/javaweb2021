@@ -2,11 +2,7 @@
 <%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+
 <style type="text/css">
 	*{
 		padding: 0;
@@ -52,9 +48,12 @@
 		
 		line-height: 50px;
 	}
+	.title{
+		text-align: center;
+		padding-top: 50px;
+	}
 </style>
-</head>
-<body>
+
 <div class="header">
 	<a href="" style="float: left;"><img src="img/logo.png" alt="" style="height: 50px;"></a>
 	<ul style="float: left;">
@@ -103,5 +102,3 @@
 	<span>网站访问量：5</span>
 	<span>当前在线人数：1</span>	
 </div>
-</body>
-</html>

@@ -4,10 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>首页</title>
+<title>文件未找到</title>
 </head>
 <body>
 <jsp:include page="menu.jsp"></jsp:include>
-<h1 class="title">欢迎访问文件分享系统</h1>
+<%
+	response.setStatus(200);
+%>
+<h1 class="title">你访问的文件已经抛弃你了……</h1>
 </body>
 </html>
