@@ -1,3 +1,5 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -93,9 +95,11 @@
 		<li><a href="">注册</a></li>
 	</ul>
 </div>
-
+<%
+	Date today = new Date();
+%>
 <div class="footer">
-	<span>攀枝花学院&copy;<b>2021级网络工程2班</b> 2023</span>
+	<span>攀枝花学院&copy;<b>2021级网络工程2班</b> 2021-<%=new SimpleDateFormat("yyyy").format(today) %></span>
 	<span>网站访问量：5</span>
 	<span>当前在线人数：1</span>	
 </div>

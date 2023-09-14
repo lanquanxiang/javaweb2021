@@ -7,7 +7,18 @@
 <title>Insert title here</title>
 </head>
 <body>
-121245
-123154545455454545
+<!--  -->
+<%
+//
+/* */
+int n =2;
+	if(n%2==0){
+		%>n是偶数<%
+	}else{
+		%>n是奇数<%
+	}
+
+%>
+<%-- --%>
 </body>
 </html>
