@@ -4,11 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>首页</title>
+<title>out输出实例</title>
 </head>
 <body>
-<jsp:include page="menu.jsp"></jsp:include>
-<h1 class="title">欢迎访问文件分享系统</h1>
-
+123
+<% out.print("456"); %>
+<% response.getWriter().print("789"); %>
 </body>
 </html>

@@ -53,9 +53,11 @@
 		padding-top: 50px;
 	}
 </style>
-
+<%
+	String path = request.getContextPath();
+%>
 <div class="header">
-	<a href="" style="float: left;"><img src="img/logo.png" alt="" style="height: 50px;"></a>
+	<a href="" style="float: left;"><img src="<%=path %>/img/logo.png" alt="" style="height: 50px;"></a>
 	<ul style="float: left;">
 		<li><a href="">文件列表</a></li>
 		<li class="menu">分类查看
@@ -77,7 +79,7 @@
 		<li>文件检索
 			<form action="" method="get" style="display: inline-block;">
 				<input type="text" style="height: 25px;"/>
-				<input type="image" src="img/search.png" style="height: 25px;vertical-align: middle;"/>
+				<input type="image" src="<%=path %>/img/search.png" style="height: 25px;vertical-align: middle;"/>
 			</form>
 		</li>
 	</ul>

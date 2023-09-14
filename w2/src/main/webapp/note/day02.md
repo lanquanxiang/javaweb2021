@@ -36,8 +36,41 @@
 ## 2. include
 1. 将页面的公共部分做成一个文件，然后导入到其他文件中
 2. <%@ include file="" %>
-3. 被包含的页面【源代码包含】--可能产生变量或代码冲突
+3. 被包含的页面包含的是【源代码】--可能产生变量或代码冲突
 	1. 使用动作元素代替，防止冲突
+	2. <jsp:include page=""></jsp:include>包含的是【结果】
 4. 以/开头，不是相对于服务器，而是相对于项目
 5. 被包含的页面中建议删除html结构标记
 ## 3. taglib
+1. prefix <c:if>
+2. uri库的地址
+
+# 3. [重要]JSP内置对象
+1. out
+2. request response
+3. request session application
+4. page pageContext config exception
+## 1. out【JspWriter】
+1. 向客户端输出内容
+2. JspWriter输出内容到JSPWriter缓冲区，可能造成代码执行顺序和结果不一致
+3. response.getWriter()得到一个PrintWriter对象【建议】
+## 2. 【重要】request和response
+### 1. request
+1. getMethod()获得请求方式：限制提交方式
+2. getContextPath() 获得项目根路径:将相对路径转换为绝对路径
+3. getRemoteAddr/Host()获得客户端IP地址：制作黑白名单
+4. getHeader("头字段") eg。referer 获得网站访问来源：防盗链
+5. 【重点】request.getParamter()获得请求参数
+	1. 返回的是一个字符串，可能需要进行类型转换，可能产生数字格式化异常
+	2. 如果什么内容都不填写，得到的是""，if(x!=null&&x.equals(""))  if("".equals(x))
+ 	3. 如果参数参数名字不存在（忘记取名字，打错字母了），得到null，可能产生空指针异常
+	4. 此方式不适用于多个值（多选框、可多选的下拉列表）
+	5. 如果可能存在多个值，应该使用 getParameterValues(java.lang.String)
+		1. 得到的是字符串数组，如果需要显示数组中的内容，需要遍历
+		2. 如果参数不存在，得到null
+		3. 如果只有一个值，得到的依旧是数组，只是长度为1
+	6. 如果使用此方法来获取多个值，只能得到第一个值
+6. 解决乱码 setCharacterEncoding​(java.lang.String encoding)
+	1. 此方法必须在获取参数之前被调用
+	2. 此方法只适用于post提交乱码
+### 2. response
