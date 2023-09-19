@@ -7,7 +7,7 @@
 <title>登录</title>
 </head>
 <body>
-<jsp:include page="menu.jsp"/>
+<jsp:include page="/menu.jsp"/>
 <h1 class="title">用户登录</h1>
 		<form action="" method="post">
 			<table>

@@ -33,6 +33,7 @@
 1. <%@include file=""/>
 2. 导入的是文件的【源代码 int x=1;】
 3. 注意：源码导入可能产生变量冲突或者代码冲突，一般情况下建议使用jsp:include
+4. 注意：路径以“/”开头，不是相对于服务器，而是相当于当前Web应用
 ### <jsp:include page="页面"/>
 ## 3. taglib标签库
 1. prefix前缀  <c:if></c:if>
@@ -66,6 +67,11 @@
 		1. 此方法只适用于post提交乱码
 		2. get乱码，只能重新构造字符串
 		3. 此方法必须在读取参数之前被调用
+	7. 可以使用request获得session：request.getSession()【重要】
+	8. 可以使用request获得application：request.getServletContext()
+	9. request可以执行请求转发 
+		```request.getRequestDispatcher("新的地址").forward(request, response);```
+	10. 可以使用request来读取cookie
 ### 2. response
 1. setStatus() 改变服务器状态码（正常） 扩展：错误状态response.sendError(500)
 2. setHeader("content-type") 设置相应内容类型（附带编码）：解决响应乱码
@@ -78,3 +84,12 @@ response.setDateHeader("Expires", 0);
 4. setHeader("refresh","1");自动刷新 setHeader("refresh","1;URL=''");自动跳转
 5. 向客户端响应消息 response.getWriter().print()
 6. 重置响应内容编码setContentType()
+7. response可以执行请求重定向
+	```response.sendRedirect("新的地址");```
+8. 可以使用response来写入cookie
+### 请求转发和重定向
+1. 请求次数：一次请求一次响应							多次请求多次响应
+2. 参数有效：request参数一直有效						参数无效
+3. URL地址栏：地址栏不变（有可能产生相对地址错误）		地址会变（最后一次请求的地址）
+4. 地址范围：只能服务器内部转发（可以转到不能直接访问的地址）	任意地址
+总结：隐藏路径或者不可直达路径（转发），除此之外都可以使用重定向
