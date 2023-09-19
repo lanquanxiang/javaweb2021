@@ -26,9 +26,16 @@ JSP（.jsp 内置了很多对象（8个）） → Servlet（.java 处理HTTP请�
 	1. 关闭HTTP友好提示（×）
 	2. 增加错误页面内容超过阈值
 	3. 重置状态码500为200
+5. 为项目配置全局的错误页面
+```
+  <error-page>
+  	<error-code>404</error-code>
+  	<location>/temp/404.jsp</location>
+  </error-page>
+```
 ## 2. include包含 
 1. 属性file
-2. 包含源代码（注意变量重复定义）
+2. 包含源代码（注意变量重复定义）[注：以/开头，是相对于应用程序根目录，不是服务器根目录]
 3. 一般使用jsp动作标签<jsp:include page=''></jsp:include> （包含页面）
 ## 3. taglib标签库
 1. prefix前缀
@@ -61,7 +68,12 @@ request.getParameterValues​(java.lang.String name)
 ```
 setCharacterEncoding​(java.lang.String encoding)
 1. 此方法只适用于post提交乱码
-2. 
+2. 此方法必须在获取请求参数的值之前被调用
+3. 如果get提交方式乱码：重构参数值xxx的编码 new String(xxx.getBytes("ISO8859-1"),"UTF-8");
+```
+6. 执行请求转发
+```
+request.getRequestDispatcher("").forward(request, response)
 ```
 ### 2. response
 1. setStatus() 设置状态码
@@ -77,7 +89,12 @@ response.setDateHeader("Expires", 0);
 ---------------------------------
 5. 响应内容给客户端（out=response.getWriter()）
 6. 设置响应内容的编码
-
-3. request session application
-4. page pagecontext config exception
+7. 执行重定向
+```
+response.sendRedirect("")
+```
+### 请求转发和重定向的区别
+1. 
+## 3. request session application
+## 4. page pagecontext config exception
 

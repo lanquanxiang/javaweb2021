@@ -35,18 +35,18 @@
 		<tr>
 			<td>性别</td>
 			<td>
-				<input type="radio" name="gender" checked="checked"/>男
-				<input type="radio" name="gender"/>女
+				<input type="radio" name="gender" checked="checked" value="男"/>男
+				<input type="radio" name="gender" value="女"/>女
 			</td>
 		</tr>
 		<tr>
 			<td>关注类型</td>
 			<td>
-				<input type="checkbox" name="type" checked="checked"/>法律法规
-				<input type="checkbox" name="type"/>管理办法
-				<input type="checkbox" name="type"/>决定条例
-				<input type="checkbox" name="type"/>细则解释
-				<input type="checkbox" name="type"/>规范指南				
+				<input type="checkbox" name="type" checked="checked" value="法律法规"/>法律法规
+				<input type="checkbox" name="type" value="管理办法"/>管理办法
+				<input type="checkbox" name="type" value="决定条例"/>决定条例
+				<input type="checkbox" name="type" value="细则解释"/>细则解释
+				<input type="checkbox" name="type" value="规范指南"/>规范指南				
 			</td>
 		</tr>
 		<tr>
