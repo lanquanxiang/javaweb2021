@@ -31,5 +31,28 @@
 # 2. 【重要】Servlet
 ## 1. 什么是Servlet
 1. 本质上是一个Java
-2. 能够处理HTTP请求（）
+2. 能够处理HTTP请求（继承了HttpServlet）
 ![](day03_files/1.jpg)
+3. 特点
+	1. Java的特点的Servlet都具备
+	2. 功能强大：不仅调用Java API 还可以调用Servlet API
+	3. 性能高效：Servlet对象只初始化一次，采用多线程来处理请求
+## 2. Servlet的创建与配置
+1. 路径的配置
+	1. @WebServlet("/路径")
+	2. web.xml配置
+2. 注意
+	1. 1个Servlet可以有多个路径 @WebServlet(urlPatterns = { "/路径1", "/路径2" })
+	2. 1个路径不能映射到多个servlet，会抛出java.lang.IllegalArgumentException
+## 3. Servlet生命周期
+1. 生命周期 constructor(构造方法)-->init(初始化)-->service（运行：反复执行）-->destroy（销毁）
+2. 构造、初始化：都由服务器容器执行，只执行1次
+3. 销毁：都由服务器容器执行，只执行1次（关闭服务器或将项目从容器中移除）
+
+# 3. 实践
+## Servlet开发步骤
+![](day03_files/2.jpg)
+## 异常
+![](day03_files/3.jpg)
+原因：可能出现了多次重定向
+解决：检查是否分支不完整，在分支末尾增加return，结束代码

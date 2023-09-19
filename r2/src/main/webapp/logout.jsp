@@ -4,10 +4,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>首页</title>
+<title>退出</title>
 </head>
 <body>
-<jsp:include page="menu.jsp"/>
-<h1 class="title">欢迎使用文件分享系统</h1>
+<%
+	session.invalidate();
+	response.sendRedirect("login.jsp");
+
+%>
+
+
+
 </body>
 </html>

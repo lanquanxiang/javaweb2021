@@ -45,7 +45,7 @@
 3. request session application
 4. page pageContext config exception
 ## 1. out输出--JspWriter
-1. 一般情况下，优先使用PrintWriter进行输出
+1. 一般情况下，优先使用PrintWriter（response.getWriter()）进行输出
 2. out.print()
 ## 2. request和response
 ### 1. request

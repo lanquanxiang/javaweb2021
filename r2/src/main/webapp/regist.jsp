@@ -7,9 +7,6 @@
 <title>注册</title>
 </head>
 <body>
-<%
-	
-%>
 <jsp:include page="menu.jsp"/>
 <h1 class="title">用户注册</h1>
 		<form action="temp/show.jsp" method="post">

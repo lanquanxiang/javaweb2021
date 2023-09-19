@@ -2,6 +2,9 @@
 <%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    
 <link rel="stylesheet" type="text/css" href="css/my.css" />
 
 <%-- 头部 --%>
@@ -33,16 +36,27 @@
 		</li>
 	</ul>
 	<ul style="float: right;">
-		<li class="menu">个人中心
-			<ul>
-				<li><a href="">个人信息</a></li>
-				<li><a href="">修改密码</a></li>
-				<li><a href="">注销账户</a></li>
-			</ul>
-		</li>
-		<li><a href="">退出</a></li>
-		<li><a href="login.jsp">登录</a></li>
-		<li><a href="regist.jsp">注册</a></li>
+		
+		
+		<c:if test="${not empty username }">
+			<li class="menu">${username}
+				<ul>
+					<li><a href="">个人信息</a></li>
+					<li><a href="">修改密码</a></li>
+					<li><a href="">注销账户</a></li>
+				</ul>
+			</li>
+			<li><a href="logout.jsp">退出</a></li>
+		</c:if>
+		
+		
+		<c:if test="${empty username }">
+			<li><a href="login.jsp">登录</a></li>
+			<li><a href="regist.jsp">注册</a></li>
+		</c:if>
+		
+		
+		
 	</ul>
 </div>
 
