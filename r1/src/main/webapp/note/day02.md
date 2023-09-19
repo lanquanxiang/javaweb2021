@@ -101,7 +101,30 @@ response.sendRedirect("")
 3. 地址变化：地址栏始终是第一次请求的地址（可能产生相对地址异常）	是最后一次请求的地址
 4. 转发范围：只能转发服务器内部（可以转到WEB-INF）	可以定向到外部
 ## 3. request session application 存储对象
+<<<<<<< HEAD
 1. 有效范围：
 
+=======
+1. 有效范围：page（当前页面）、request（一次请求）、session（一次会话）、application（服务器）
+2. request：默认，请求参数
+3. session：常用【重点】，与服务器建立连接开始，直到与服务器断开连接
+4. application：不建议使用，存储服务器配置信息【所有用户共享】，网站访问量
+5. 重要的方法（CRUD）
+	1. 增加 setAttribute(String key,Object 要存储的内容)
+	2. 删除	removeAttribute(String key)
+	3. 修改 setAttribute(String key,Object 要存储的内容)
+	4. 查询 Object getAttribute(String key)
+		1. 有可能需要进行类型转换
+		2. 有可能产生类型转换异常，需要使用try catch来进行异常捕获
+6. session常用方法
+	1. 让session失效 session.invalidate() 应用：注销、退出
+	2. 可以在web.xml中配置有效期 应用：安全性考虑（防止敏感信息泄露） 性能考虑（删除无效连接）
+	3. setMaxInactiveInterval​(int interval) 设置session有效期（单位秒），负数或0，永不失效
+	4. request.getSeesion(true) 获得session
+>>>>>>> a148c1258388ed489a3e417635c126e72cb392a2
 ## 4. page pagecontext config exception
+1. page 当前页面本身 this
+2. pageContext 页面上下文（通过此对象访问其他对象） 应用： EL表达式中使用${pageContext.request.contextPath}
+3. config 获取配置信息
+4. exception 只有设置了当前页面是处理错误的页面，才会存在
 
