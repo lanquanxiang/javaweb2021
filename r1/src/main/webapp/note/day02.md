@@ -75,6 +75,7 @@ setCharacterEncoding​(java.lang.String encoding)
 ```
 request.getRequestDispatcher("").forward(request, response)
 ```
+7. 获得cookie（自动登录，读取之前保存的信息【保存密码】）
 ### 2. response
 1. setStatus() 设置状态码
 ------------------
@@ -93,8 +94,14 @@ response.setDateHeader("Expires", 0);
 ```
 response.sendRedirect("")
 ```
-### 请求转发和重定向的区别
-1. 
-## 3. request session application
+8. 写入cookie
+### 请求转发和重定向的区别（简答题）
+1. 请求次数：一次请求一次响应		多次请求多次响应
+2. 请求参数：请求参数一直携带		参数会失效（需要重新发送）
+3. 地址变化：地址栏始终是第一次请求的地址（可能产生相对地址异常）	是最后一次请求的地址
+4. 转发范围：只能转发服务器内部（可以转到WEB-INF）	可以定向到外部
+## 3. request session application 存储对象
+1. 有效范围：
+
 ## 4. page pagecontext config exception
 
