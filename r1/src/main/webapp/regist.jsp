@@ -17,8 +17,9 @@
 </head>
 <body>
 <jsp:include page="/menu.jsp"></jsp:include>
+
 <h1 class="title">用户注册</h1>
-<form action="show.jsp" method="post">
+<form action="temp/show.jsp" method="post">
 	<table style="margin: auto;">
 		<tr>
 			<td>账号</td>
