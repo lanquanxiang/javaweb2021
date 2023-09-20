@@ -24,7 +24,7 @@
 	String[] types = request.getParameterValues("type");
 	String code = request.getParameter("code");
 	
-	request.getRequestDispatcher("新的地址").forward(request, response);
+	
 
 %>
 

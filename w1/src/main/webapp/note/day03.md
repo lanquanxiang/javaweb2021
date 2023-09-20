@@ -41,3 +41,16 @@
 1. java的特点都有
 2. 功能强大：能够调用Java API，还能够调用Servlet API
 3. 性能高效：只初始化一次，多线程提供服务（锁）
+## 3. Servlet的配置
+1. 在web.xml中进行配置
+2. 使用注解配置@WebServlet("/path")
+3. 注意：1个Servlet可以有多个路径：@WebServlet(urlPatterns = { "/path1", "/path2", "/path3"})
+		1个路径不能关联多个Servlet
+## 4. Servlet的生命周期【简答题】
+1. 阶段： constructor（创建）--> init （初始化） --> Service(服务) -……………………->destory（销毁）
+2. 解释：
+	1. 创建阶段：服务器启动或第一次访问时创建（由容器自动执行，只执行一次）
+	2. 初始化阶段：服务器启动或第一次访问时创建（由容器自动执行，只执行一次）
+	3. service阶段：反复执行（多线程）转发到doXXX()
+	4. 销毁阶段：服务器关闭或应用被移除（由容器自动执行，只执行一次）
+## 5. Servlet开发【考试：16'】
