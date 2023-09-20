@@ -12,26 +12,26 @@
 </style>
 </head>
 <body>
-<jsp:include page="common.jsp" />
+<jsp:include page="/common.jsp" />
 <h1 class="title">用户注册</h1>
-<form action="" method="post">
+<form action="temp/show.jsp" method="post">
 	<table style="margin: auto;">
 		<tr>
 			<td>账号</td>
 			<td>
-				<input type="text" name=""/>
+				<input type="text" name="username"/>
 			</td>
 		</tr>
 		<tr>
 			<td>密码</td>
 			<td>
-				<input type="password" name=""/>
+				<input type="password" name="password"/>
 			</td>
 		</tr>
 		<tr>
 			<td>Email</td>
 			<td>
-				<input type="text" name=""/>
+				<input type="text" name="email"/>
 			</td>
 		</tr>
 		<tr>
@@ -60,7 +60,7 @@
 		</tr>
 		<tr>
 			<td colspan="2" style="text-align: center;">
-				<input type="submit" value="注册"/>
+				<input type="submit" value="注册" style="width: 100px;height: 30px;"/>
 			</td>
 		</tr>
 	</table>

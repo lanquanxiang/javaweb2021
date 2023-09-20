@@ -71,6 +71,9 @@
 	3. 此方法只适用于post提交乱码
 	4. 如果get提交乱码，XXX-->iso8859-1字节数组--> 再UTF-8构造为字符串
 	``` new String(username.getBytes("ISO8859-1"),"UTF-8");```
+7. 执行请求转发
+	```request.getRequestDispatcher("新的地址").forward(request, response);```
+8. 读取cookie
 ### 2. response
 1. 设置响应状态码setStatus(200)[正常]  sendError(500)[异常];
 ```
@@ -89,3 +92,12 @@ response.setHeader("refresh", "1");
 response.setHeader("refresh", "1;URL=''");
 ```
 3. 设置响应内容类型response.setContentType()
+4. 执行重定向
+	```response.sendRedirect("新的地址");```
+5. 写入cookie 
+### 3. 请求转发和重定向的区别【简答题】
+1. 请求响应次数：一次请求一次响应						多次请求多次响应
+2. 地址栏变化：显示请求地址（B和D不一致）相对路径异常 	显示最后一次请求的地址（D）
+3. 新地址范围：只能是服务器内部（可以到不能直接访问路径WEB_INF）	任意地址
+4. 参数有效期：request一直携带参数			参数失效
+应用：不需要隐藏路径，不需要到达不可访问路径，都可以使用重定向
