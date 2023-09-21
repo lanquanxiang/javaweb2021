@@ -57,10 +57,11 @@
 ## 2. 【重要】request和response
 ### 1. request
 1. getMethod()获得请求方式：限制提交方式
-2. getContextPath() 获得项目根路径:将相对路径转换为绝对路径
-3. getRemoteAddr/Host()获得客户端IP地址：制作黑白名单
-4. getHeader("头字段") eg。referer 获得网站访问来源：防盗链
-5. 【重点】request.getParamter()获得请求参数
+2. 获得请求头信息
+	1. getContextPath() 获得项目根路径:将相对路径转换为绝对路径
+	2. getRemoteAddr/Host()获得客户端IP地址：制作黑白名单
+	3. getHeader("头字段") eg。referer 获得网站访问来源：防盗链
+3. 【重点】request.getParamter()获得请求参数
 	1. 返回的是一个字符串，可能需要进行类型转换，可能产生数字格式化异常
 	2. 如果什么内容都不填写，得到的是""，if(x!=null&&x.equals(""))  if("".equals(x))
  	3. 如果参数参数名字不存在（忘记取名字，打错字母了），得到null，可能产生空指针异常
@@ -70,7 +71,16 @@
 		2. 如果参数不存在，得到null
 		3. 如果只有一个值，得到的依旧是数组，只是长度为1
 	6. 如果使用此方法来获取多个值，只能得到第一个值
-6. 解决乱码 setCharacterEncoding​(java.lang.String encoding)
+4. 解决乱码 setCharacterEncoding​(java.lang.String encoding)
 	1. 此方法必须在获取参数之前被调用
 	2. 此方法只适用于post提交乱码
+	3. get乱码：重构编码 xxx.getBytes("ISO8859-1")   new String(xxx.getBytes("ISO8859-1"),"utf-8")
 ### 2. response
+1. setStatus() 设置服务器状态码 如果状态码表示异常，需要使用sendError()
+2. 设置响应头信息
+	1. response.setHeader(key,value) 设置任意头信息的值
+	2. 禁止缓存【应用：验证码不能缓存】
+	3. 自动跳转或自动刷新 
+		```response.setHeader("refresh","时间-秒");response.setHeader("refresh","时间-秒;URL=''");```
+3. 得到输出流response.getWriter()【printWriter】，向客户端输出内容
+4. 解决响应乱码 response.setContentType("text/html; charset=UTF-8") 

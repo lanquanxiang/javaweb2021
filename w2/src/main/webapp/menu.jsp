@@ -92,8 +92,8 @@
 			</ul>
 		</li>
 		<li><a href="">退出</a></li>
-		<li><a href="">登录</a></li>
-		<li><a href="">注册</a></li>
+		<li><a href="/w2/login.jsp">登录</a></li>
+		<li><a href="/w2/regist.jsp">注册</a></li>
 	</ul>
 </div>
 <%
