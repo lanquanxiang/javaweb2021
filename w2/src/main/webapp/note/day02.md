@@ -75,6 +75,9 @@
 	1. 此方法必须在获取参数之前被调用
 	2. 此方法只适用于post提交乱码
 	3. get乱码：重构编码 xxx.getBytes("ISO8859-1")   new String(xxx.getBytes("ISO8859-1"),"utf-8")
+5. 可以执行请求转发
+	```request.getRequestDispatcher("path").forward(request, response);```
+6. 读取cookie
 ### 2. response
 1. setStatus() 设置服务器状态码 如果状态码表示异常，需要使用sendError()
 2. 设置响应头信息
@@ -84,3 +87,13 @@
 		```response.setHeader("refresh","时间-秒");response.setHeader("refresh","时间-秒;URL=''");```
 3. 得到输出流response.getWriter()【printWriter】，向客户端输出内容
 4. 解决响应乱码 response.setContentType("text/html; charset=UTF-8") 
+5. 可以执行重定向
+	```response.sendRedirect("path");```
+6. 写入cookie 
+### 3. 请求转发和重定向的区别
+1. 请求响应次数：一次请求一次响应				多次请求多次响应
+2. 请求参数有效：request携带参数				参数全部失效
+3. path范围：服务器内部（转到不能直接访问的路径）任意路径
+4. 地址栏变化：地址栏不变（第一次请求地址）[相对路径错误]	地址栏变化（最后一次请求地址）
+总结：隐藏地址或达到不能直接访问的路径，使用请求转发。
+	如果需要参数，可以使用存储对象进行数据存储。

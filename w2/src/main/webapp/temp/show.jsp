@@ -23,6 +23,8 @@
 	String gender = request.getParameter("gender");
 	String[] types = request.getParameterValues("type");
 	String code = request.getParameter("code");
+	
+	
 %>
 <h1 class="title">用户信息</h1>
 
