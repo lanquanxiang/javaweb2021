@@ -9,7 +9,7 @@
 <body>
 <jsp:include page="/menu.jsp"/>
 <h1 class="title">用户登录</h1>
-		<form action="login" method="post">
+		<form action="${pageContext.request.contextPath}/login" method="post">
 			<table>
 				<tr>
 					<td>账号</td>
