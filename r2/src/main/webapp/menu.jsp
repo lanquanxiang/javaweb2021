@@ -5,11 +5,11 @@
     
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     
-<link rel="stylesheet" type="text/css" href="css/my.css" />
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/my.css" />
 
 <%-- 头部 --%>
 <div class="header">
-	<a href="" style="float: left;"><img src="img/logo.png" alt="" style="height: 50px;"></a>
+	<a href="" style="float: left;"><img src="${pageContext.request.contextPath}/img/logo.png" alt="" style="height: 50px;"></a>
 	<ul style="float: left;">
 		<li><a href="">文件列表</a></li>
 		<li class="menu">分类查看
@@ -31,7 +31,7 @@
 		<li>文件检索
 			<form action="" method="post" style="display: inline-block;">
 				<input type="text" style="line-height: 25px;width:150px;" />
-				<input type="image" src="img/search.png" style="height: 20px;vertical-align: middle;" />
+				<input type="image" src="${pageContext.request.contextPath}/img/search.png" style="height: 20px;vertical-align: middle;" />
 			</form>
 		</li>
 	</ul>
