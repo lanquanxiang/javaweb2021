@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Test2Servlet
  */
-@WebServlet("/a2")
+@WebServlet("/b1")
 public class Test2Servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
