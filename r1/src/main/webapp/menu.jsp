@@ -93,8 +93,8 @@
 			</ul>
 			
 			<ul style="float: right;">
-				<c:if test="${not empty username}">
-					<li  class="menu">${username }
+				<c:if test="${not empty user}">
+					<li  class="menu" style="width: 100px;text-align: center;">${user.username }
 						<ul>
 							<li><a href="">个人信息</a></li>
 							<li><a href="">修改密码</a></li>
@@ -104,9 +104,9 @@
 					<li><a href="">退出</a></li>
 				</c:if>
 				
-				<c:if test="${empty username}">
-					<li><a href="login.jsp">登录</a></li>
-					<li><a href="regist.jsp">注册</a></li>
+				<c:if test="${empty user}">
+					<li><a href="${pageContext.request.contextPath}/login.jsp">登录</a></li>
+					<li><a href="${pageContext.request.contextPath}/regist.jsp">注册</a></li>
 				</c:if>
 			</ul>
 		</div>
