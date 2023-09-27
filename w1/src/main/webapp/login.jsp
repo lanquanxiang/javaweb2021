@@ -14,18 +14,18 @@
 <body>
 <jsp:include page="/common.jsp" />
 <h1 class="title">用户登录</h1>
-<form action="" method="post">
+<form action="${pageContext.request.contextPath}/login" method="post">
 	<table style="margin: auto;">
 		<tr>
 			<td>账号</td>
 			<td>
-				<input type="text" name=""/>
+				<input type="text" name="username"/>
 			</td>
 		</tr>
 		<tr>
 			<td>密码</td>
 			<td>
-				<input type="password" name=""/>
+				<input type="password" name="password"/>
 			</td>
 		</tr>
 		
