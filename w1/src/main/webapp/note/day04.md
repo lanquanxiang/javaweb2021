@@ -53,4 +53,8 @@ ${表达式}   $() jquery
 	
 ## 3. 格式化库
 
+# 4. 实验
+reg.test(string)
+Pattern.matches(reg,string)
+
 
