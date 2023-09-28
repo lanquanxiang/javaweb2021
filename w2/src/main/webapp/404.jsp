@@ -7,7 +7,7 @@
 <title>文件未找到</title>
 </head>
 <body>
-<jsp:include page="menu.jsp"></jsp:include>
+<jsp:include page="/menu.jsp"></jsp:include>
 <%
 	response.setStatus(200);
 %>

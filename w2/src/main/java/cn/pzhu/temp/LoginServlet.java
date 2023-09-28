@@ -30,6 +30,9 @@ public class LoginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//1. 处理编码 //2'
 		request.setCharacterEncoding("utf-8");
+		
+		String path = request.getContextPath(); //${pageContext.request.ContextPath}
+		
 		//2. 接收参数 //4'
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
@@ -37,7 +40,7 @@ public class LoginServlet extends HttpServlet {
 		if(username==null || password ==null) {
 			request.getSession().setAttribute("msg", "数据接收异常");
 			//9. 不符合预期，重定向到错误页面
-			response.sendRedirect("error.jsp");
+			response.sendRedirect(path+"/error.jsp");
 			return;
 		}
 		if(username.equals("")) {
@@ -55,16 +58,16 @@ public class LoginServlet extends HttpServlet {
 		//4. 封装数据
 		User user = new User(username, password, null);
 		//5. 初始化模型（业务层）
-		//6. 接收业务层结果
+		//6. 接收业务层结果  2'
 		if(!password.equals("123456")) {
 			request.getSession().setAttribute("msg", "密码错误");
 			//9. 不符合预期，重定向到错误页面
 			response.sendRedirect("error.jsp");
 			return;
 		}
-		//7. 保存数据
+		//7. 保存数据 2'
 		request.getSession().setAttribute("user", user);
-		//8. 跳转到正确页面
+		//8. 跳转到正确页面 2'
 		response.sendRedirect("index.jsp");
 		
 	}

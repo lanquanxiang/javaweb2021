@@ -12,9 +12,9 @@
 </style>
 </head>
 <body>
-<jsp:include page="menu.jsp"></jsp:include>
+<jsp:include page="/menu.jsp"></jsp:include>
 <h1 class="title">用户登录</h1>
-<form action="login" method="post">
+<form action="${pageContext.request.contextPath}/login" method="post">
 	<table style="margin: auto;">
 		<tr>
 			<td>账号</td>

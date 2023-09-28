@@ -12,7 +12,7 @@
 </style>
 </head>
 <body>
-<jsp:include page="menu.jsp"></jsp:include>
+<jsp:include page="/menu.jsp"></jsp:include>
 <h1 class="title">用户注册</h1>
 <form action="temp/show.jsp" method="post">
 	<table style="margin: auto;">
@@ -37,8 +37,8 @@
 		<tr>
 			<td>性别</td>
 			<td>
-				<input type="radio" name="gender" value="男" checked="checked"/>男
-				<input type="radio" name="gender" value="女"/>女
+				<input type="radio" name="gender" value="1" checked="checked"/>男
+				<input type="radio" name="gender" value="0"/>女
 			</td>
 		</tr>
 		<tr>
