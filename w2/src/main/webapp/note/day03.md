@@ -12,6 +12,7 @@
 	4. 查询 Object getAttribute(String key)
 		1. 可能需要进行类型转换
 		2. 可能产生类型转换异常，使用try  catch进行捕获
+		3. 如果key没有数据，得到null（可能空指针异常）
 4. request可以获得其他存储对象
 	1. session： request.getSession()
 	2. application: request.getServletContext()
