@@ -38,3 +38,43 @@
 2. LoginServlet接收数据，并且判断是否能够登录
 3. index.jsp 登录成功之后的首页（需要动态显示菜单）
 4. error.jsp 登录失败的错误消息
+
+# 4. EL
+## 1. 概述
+1. 表达式语言
+2. ${表达式}
+## 2. 使用
+1. 运算：算数运算、比较运算、逻辑运算、条件运算
+2. 判空：${empty x} 判断x是否为null或""   ${not empty x}
+3. 读取对象的属性${对象.属性}
+4. 读取集合/数组中的值 ${array[i]}  ${list[i]}
+5. 获取web根路径 ${pageContext.request.contextPath}
+6. 读取域对象中的信息 ${sessionScope.msg }
+	说明：${msg}:依次从小到大查找 page-->request-->session-->application
+7. 读取cookie  ${cookie.名字.value}
+
+# 5. JSTL
+## 1. 概述
+1. JSP标准标签库
+2. 导入JSTL的jar包
+![](day04_files/2.jpg)
+3. 需要在JSP页面进行声明
+## 2. 核心库
+1. 分支
+	1. 单分支 <c:if test="">执行内容</c:if>
+	2. 多分支
+		<c:choose>
+			<c:when test="">执行内容</c:when>
+			<c:when test="">执行内容</c:when>
+			<c:otherwise test="">执行内容</c:otherwise>
+		</c:choose>
+2. 循环
+	<c:forEach var="x" items="" varStatus="y">${x}</c:forEach>
+	1.  var="x" 正在迭代的元素会保存在x中，x又被存储到page域 ${x}
+	2.  items="需要迭代的集合" 必须
+	3.  varStatus="y" y表示的是迭代状态信息对象
+			y.index 表示迭代的索引，从0开始
+			y.count 表示迭代的次数，从1开始【表格的序号】
+# 实验
+1. 正则表达式  reg.test(email)
+2. Java    Pattern.matches(reg,email)
