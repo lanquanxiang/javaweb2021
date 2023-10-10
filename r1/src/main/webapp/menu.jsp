@@ -101,7 +101,7 @@
 							<li><a href="">注销账户</a></li>
 						</ul>
 					</li>
-					<li><a href="">退出</a></li>
+					<li><a href="${pageContext.request.contextPath}/logout">退出</a></li>
 				</c:if>
 				
 				<c:if test="${empty user}">

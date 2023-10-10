@@ -1,7 +1,6 @@
 package cn.pzhu.temp;
 
 import java.io.IOException;
-import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
@@ -11,10 +10,10 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpFilter;
 
 /**
- * Servlet Filter implementation class Test1Filter
+ * Servlet Filter implementation class AFilter
  */
-@WebFilter("/*")
-public class Test1Filter extends HttpFilter implements Filter {
+@WebFilter(urlPatterns = {"/userinfo.jsp","/changepwd.jsp"})
+public class AFilter extends HttpFilter {
        
     /**
 	 * 
@@ -24,7 +23,7 @@ public class Test1Filter extends HttpFilter implements Filter {
 	/**
      * @see HttpFilter#HttpFilter()
      */
-    public Test1Filter() {
+    public AFilter() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -44,9 +43,8 @@ public class Test1Filter extends HttpFilter implements Filter {
 		// place your code here
 
 		// pass the request along the filter chain
-		System.out.print("Test1Filter正在执行");
+		System.out.print("AFilter正在执行");
 		chain.doFilter(request, response);
-		//2
 	}
 
 	/**

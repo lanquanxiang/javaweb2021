@@ -7,14 +7,13 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpFilter;
 
 /**
  * Servlet Filter implementation class Test1Filter
  */
-@WebFilter("/*")
-public class Test1Filter extends HttpFilter implements Filter {
+
+public class Test2Filter extends HttpFilter implements Filter {
        
     /**
 	 * 
@@ -24,7 +23,7 @@ public class Test1Filter extends HttpFilter implements Filter {
 	/**
      * @see HttpFilter#HttpFilter()
      */
-    public Test1Filter() {
+    public Test2Filter() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -44,7 +43,7 @@ public class Test1Filter extends HttpFilter implements Filter {
 		// place your code here
 
 		// pass the request along the filter chain
-		System.out.print("Test1Filter正在执行");
+		System.out.print("Test2Filter正在执行");
 		chain.doFilter(request, response);
 		//2
 	}
