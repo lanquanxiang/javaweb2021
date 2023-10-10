@@ -46,7 +46,7 @@
 					<li><a href="">注销账户</a></li>
 				</ul>
 			</li>
-			<li><a href="${pageContext.request.contextPath}/logout.jsp">退出</a></li>
+			<li><a href="${pageContext.request.contextPath}/logout">退出</a></li>
 		</c:if>
 		
 		
@@ -67,6 +67,6 @@
 
 <div class="footer">
 	<span>攀枝花学院&copy;<b>2021级软件工程2班</b> 2021-<%=new SimpleDateFormat("yyyy").format(today) %></span>
-	<span>网站访问量：5</span>
-	<span>当前登录人数：1</span>
+	<span>网站访问量：${empty visitor?0:visitor }</span>
+	<span>当前登录人数：${empty online?0:online }</span>
 </div>
