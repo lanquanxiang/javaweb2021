@@ -28,6 +28,5 @@ public class CacheFilter extends HttpFilter {
 		res.setHeader("Pragma", "No-cache");
 		res.setHeader("Cache-Control", "no-cache");
 		res.setDateHeader("Expires", 0);
-		System.out.println("缓存过滤器正在禁止JSP文件缓存……");
 	}
 }

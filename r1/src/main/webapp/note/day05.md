@@ -42,4 +42,13 @@
 3. 能够对response进行处理
 	1. 禁止缓存【jsp动态文件】
 	2. 设置响应头【设置允许静态资源跨域请求】
+
+# 2. Listener监听器
+## 1. 概念
+1. 本质上是Java文件
+2. 实现了特定接口
+## 2. 监听器接口
+1. XXXListener 监听XXX域对象的创建和销毁
+2. XXXAttributeListener 监听XXX域对象中属性的变化（增加、删除、修改）
+3. HttpSessionBindingListener 监听某个JavaBean[去实现接口]被绑定到Session中
 	

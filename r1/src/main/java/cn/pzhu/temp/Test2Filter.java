@@ -43,7 +43,7 @@ public class Test2Filter extends HttpFilter implements Filter {
 		// place your code here
 
 		// pass the request along the filter chain
-		System.out.print("Test2Filter正在执行");
+		//System.out.print("Test2Filter正在执行");
 		chain.doFilter(request, response);
 		//2
 	}

@@ -26,7 +26,6 @@ public class EncodingFilter extends HttpFilter {
 			throws IOException, ServletException {
 		req.setCharacterEncoding("UTF-8");
 		res.setCharacterEncoding("UTF-8");
-		System.out.println("编码过滤器正在帮你处理编码……");
 		super.doFilter(req, res, chain);
 	}
 }

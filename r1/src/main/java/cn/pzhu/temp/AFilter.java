@@ -43,7 +43,7 @@ public class AFilter extends HttpFilter {
 		// place your code here
 
 		// pass the request along the filter chain
-		System.out.print("AFilter正在执行");
+		//System.out.print("AFilter正在执行");
 		chain.doFilter(request, response);
 	}
 
