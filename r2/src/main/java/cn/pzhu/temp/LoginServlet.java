@@ -28,8 +28,8 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//1. 处理编码
-		request.setCharacterEncoding("utf-8"); //2'
+		//1. 处理编码(已经在过滤器中被处理)
+		//request.setCharacterEncoding("utf-8"); //2'
 		
 		String path = request.getContextPath();  //${pageContext.request.contextPath}
 		

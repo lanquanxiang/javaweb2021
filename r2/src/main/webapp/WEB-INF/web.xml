@@ -14,5 +14,22 @@
   	<error-code>404</error-code>
   	<location>/404.jsp</location>
   </error-page>
+   <filter>
+  	<filter-name>Filter4</filter-name>
+  	<filter-class>cn.pzhu.temp.Filter4Filter</filter-class>
+  </filter>
+  <filter-mapping>
+  		<filter-name>Filter4</filter-name>
+  		<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  <filter>
+  	<filter-name>Filter2</filter-name>
+  	<filter-class>cn.pzhu.temp.Filter2Filter</filter-class>
+  </filter>
+  <filter-mapping>
+  		<filter-name>Filter2</filter-name>
+  		<url-pattern>/*</url-pattern>
+  </filter-mapping>
   
 </web-app>
