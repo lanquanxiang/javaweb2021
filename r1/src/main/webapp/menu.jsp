@@ -64,7 +64,8 @@
 		</style>
 	
 		<div class="header">
-			<a href="index.jsp" style="float: left;"><img src="img/logo.png" alt="" height="50px"></a>
+			<a href="${pageContext.request.contextPath}/index.jsp" style="float: left;">
+			<img src="${pageContext.request.contextPath}/img/logo.png" alt="" height="50px"></a>
 			<ul style="float: left;">
 				<li><a href="#">文件列表</a></li>
 				<li  class="menu">分类查看
@@ -87,7 +88,7 @@
 					文件检索
 					<form action="#" method="post">
 						<input type="text" name="" />
-						<input type="image" src="img/search.png" height="20px" style="vertical-align: middle;"/>
+						<input type="image" src="${pageContext.request.contextPath}/img/search.png" height="20px" style="vertical-align: middle;"/>
 					</form>
 				</li>
 			</ul>
@@ -96,7 +97,7 @@
 				<c:if test="${not empty user}">
 					<li  class="menu" style="width: 100px;text-align: center;">${user.username }
 						<ul>
-							<li><a href="">个人信息</a></li>
+							<li><a href="${pageContext.request.contextPath}/userinfo.jsp">个人信息</a></li>
 							<li><a href="">修改密码</a></li>
 							<li><a href="">注销账户</a></li>
 						</ul>

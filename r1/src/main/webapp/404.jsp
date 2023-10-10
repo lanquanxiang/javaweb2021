@@ -8,6 +8,7 @@
 </head>
 <body>
 <jsp:include page="/menu.jsp"></jsp:include>
+<% response.setStatus(200); %>
 <h1 class="title">你访问的文件已经去火星了……</h1>
 </body>
 </html>
