@@ -24,7 +24,7 @@ public class CacheFilter extends HttpFilter  {
 	@Override
 	protected void doFilter(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
 			throws IOException, ServletException {		
-		System.out.println("JSP文件已经被禁止缓存...");
+		//System.out.println("JSP文件已经被禁止缓存...");
 		super.doFilter(request, response, chain);
 		response.setHeader("Pragma", "No-cache");
 		response.setHeader("Cache-Control", "no-cache");

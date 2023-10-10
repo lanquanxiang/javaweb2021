@@ -26,7 +26,7 @@ public class EncodingFilter extends HttpFilter  {
 			throws IOException, ServletException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
-		System.out.println("编码过滤器正在处理编码...");
+		//System.out.println("编码过滤器正在处理编码...");
 		super.doFilter(request, response, chain);
 	}
 	

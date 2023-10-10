@@ -46,4 +46,21 @@
 ## 4. 实践
 1. 统一全站编码
 2. 禁止所有jsp文件被缓存
+
+
+# 2. Listener监听器
+## 1. 概念
+1. 本质上是Java文件（*.java）
+2. 实现了特定的接口
+## 2. 特定接口
+1. XXXListener 监听的XXX域对象的创建（create）和销毁（destroy）
+2. XXXAttributeListener 监听的XXX域中属性的修改（增加add、删除remove、修改replace）
+3. HttpSessionBindingListener 需要某个值JavaBean来实现该接口-->这个JavaBean的实例绑定到session就会被监听
+## 3. 实践
+1. 监听网站访问量
+	根据session的创建，然后访问量+1
+2. 监听在线人数
+	统计session中被写入了多少次user
+	增加一个user在线人数就+1
+	user被删除-1（手动退出，等待超时销毁）
 	

@@ -25,9 +25,9 @@ public class Filter1Filter extends HttpFilter  {
 	protected void doFilter(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 		// TODO Auto-generated method stub
-		System.out.println("Filter1-1");
+		//System.out.println("Filter1-1");
 		super.doFilter(request, response, chain);		
-		System.out.println("Filter1-2");
+		//System.out.println("Filter1-2");
 	}
 	
 	

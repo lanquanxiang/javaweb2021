@@ -23,9 +23,9 @@ public class Filter4Filter extends HttpFilter  {
 	@Override
 	protected void doFilter(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-		System.out.println("Filter4-1");
+		//System.out.println("Filter4-1");
 		super.doFilter(request, response, chain);
-		System.out.println("Filter4-2");
+		//System.out.println("Filter4-2");
 	}
 	
 	
