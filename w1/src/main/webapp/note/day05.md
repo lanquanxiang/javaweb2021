@@ -40,3 +40,17 @@
 1. 统一网站编码
 2. 未登录拦截
 3. 允许跨域、禁止缓存
+
+
+# 2. listener监听器
+## 1. 概念
+1. 本质上Java文件（*.java）
+2. 实现了特定的接口
+## 2. 作用
+1. 监听域对象的创建（created）和销毁（destroy）   XXXListener
+2. 监听域对象中属性的修改（增加add、删除remove、修改replace）XXXAttributeListener
+3. 监听特定对象（JavaBean）是否从session域中绑定/解绑【了解】 
+	说明：需要JavaBean去实现接口，可以使用第二组接口代替
+## 3. 实践
+1. 监听域对象的创建和销毁---统计网站访问量
+	监听到session被创建，访问量+1
