@@ -89,7 +89,7 @@
 			<c:when test="${not empty user}">
 				<li class="menu" style="width: 80px;text-align: center;">${user.username}
 					<ul>
-						<li><a href="">个人信息</a></li>
+						<li><a href="${pageContext.request.contextPath}/userinfo.jsp">个人信息</a></li>
 						<li><a href="">修改密码</a></li>
 						<li><a href="">注销账户</a></li>
 					</ul>
