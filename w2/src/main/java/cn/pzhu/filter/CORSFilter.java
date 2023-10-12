@@ -1,4 +1,4 @@
-package cn.pzhu.temp;
+package cn.pzhu.filter;
 
 
 import java.io.IOException;
@@ -13,8 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet Filter implementation class F1Filter
  */
-@WebFilter("/*")
-public class F2Filter extends HttpFilter {
+@WebFilter("/note/*")
+public class CORSFilter extends HttpFilter {
        
     /**
 	 * 
@@ -24,9 +24,9 @@ public class F2Filter extends HttpFilter {
 	@Override
 	protected void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain)
 			throws IOException, ServletException {
-		//System.out.println("F2-request");
+		System.out.println("允许跨域");
+		res.setHeader("Access-Control-Allow-Origin", "*");
 		super.doFilter(req, res, chain);
-		//System.out.println("F2-response");
 	}
 	
 	

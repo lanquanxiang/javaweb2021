@@ -24,9 +24,9 @@ public class F1Filter extends HttpFilter {
 	@Override
 	protected void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain)
 			throws IOException, ServletException {
-		System.out.println("F1-request");
+		//System.out.println("F1-request");
 		super.doFilter(req, res, chain);
-		System.out.println("F1-response");
+		//System.out.println("F1-response");
 	}
 	
 	

@@ -29,7 +29,7 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//1. 处理编码 //2'
-		request.setCharacterEncoding("utf-8");
+		//request.setCharacterEncoding("utf-8");//过滤器已经处理了编码
 		
 		String path = request.getContextPath(); //${pageContext.request.ContextPath}
 		
