@@ -19,7 +19,7 @@
 </style>
 </head>
 <body>
-<jsp:include page="/common.jsp"></jsp:include>
+<jsp:include page="/menu.jsp"></jsp:include>
 
 <h1 class="title">个人信息</h1>
 <form action="update" method="post">
