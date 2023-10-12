@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="jquery-3.7.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				$.get("http://localhost:8081/w2/note/data.txt",function(data){
+					$("#note").html(data)
+				})				
+			})
+		</script>
+		<div id="note"></div>
+	</body>
+</html>
