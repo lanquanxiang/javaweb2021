@@ -29,7 +29,8 @@ public class OnlineListener implements HttpSessionAttributeListener {
 			if(se.getName().equals("user")) {
 				online = online +1;
 				se.getSession().getServletContext().setAttribute("online", online);
-				if(se.getValue() instanceof User user) {
+				if(se.getValue() instanceof User) {
+					User user = (User)se.getValue();
 					System.out.println(user.getUsername()+"上线了...");
 				}
 			}
