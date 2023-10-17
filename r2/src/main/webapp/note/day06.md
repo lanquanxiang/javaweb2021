@@ -22,3 +22,24 @@
 1. 注册驱动
 	1. DriverManager来注册（×）底层使用了Class.forName() 驱动重复注册
 	2. Class.forName()
+2. 建立连接
+	1. url【mysql8.0需要解决时区、编码、SSL连接】
+	2. user
+	3. password
+3. 编写SQL语句
+4. 创建命令对象
+	1. Statement 静态命令
+	2. PreparedStatement 预编译的命令（一般用于执行带参数的SQL）
+5. 执行SQL
+	1. 执行查询 executeQuery ResultSet
+	2. 执行更新 executeUpdate 受到影响的行数n
+6. 处理结果
+	1. 遍历结果集 while(x.next())
+	2. 判断n==0?
+7. 释放资源
+	1. 结果集-->命令对象-->连接
+	2. 为什么是这个顺序？ 如果项目采用了数据库连接池，这个时候直接释放连接，其实是归还
+## 4. JDBC优化
+1. 注册驱动只需要一次（静态代码块）
+2. 建立连接最好不需要参数（参数放在配置文件中，项目启动的时候读入 property）
+3. 重载释放资源的方法，一行就能释放任意情况下的资源
