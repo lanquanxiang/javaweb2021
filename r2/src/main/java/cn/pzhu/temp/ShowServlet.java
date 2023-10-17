@@ -76,6 +76,9 @@ public class ShowServlet extends HttpServlet {
 			con.close();
 			list.stream().map(FileMsg::getFilename).forEach(System.out::println);
 			
+			request.getSession().setAttribute("list", list);
+			response.sendRedirect("show.jsp");
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
