@@ -17,6 +17,9 @@ display:inline-block;
 td{
 	text-align: center;
 }
+tr:nth-child(2n){
+	background-color: #cdcdcd;
+}
 </style>
 </head>
 <body>
