@@ -26,7 +26,7 @@
 		background-color: #cdcdcd;
 	}
 	.footer{
-		position: absolute;
+		position: fixed;
 		bottom: 0px;
 		width: 100%;
 		text-align: center;
@@ -59,7 +59,7 @@
 <div class="header">
 	<a href="index.jsp" style="float: left;"><img src="${pageContext.request.contextPath}/img/logo.png" height="50px"></a>
 	<ul style="float: left;">
-		<li><a href="">文件列表</a></li>
+		<li><a href="${pageContext.request.contextPath}/show">文件列表</a></li>
 		<li class="menu">分类查看
 			<ul>
 				<li><a href="">法律法规</a></li>
