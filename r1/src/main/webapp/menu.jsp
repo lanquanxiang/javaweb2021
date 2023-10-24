@@ -86,8 +86,8 @@
 				</li>
 				<li>
 					文件检索
-					<form action="#" method="post">
-						<input type="text" name="" />
+					<form action="${pageContext.request.contextPath}/search" method="post">
+						<input type="text" name="keyword" />
 						<input type="image" src="${pageContext.request.contextPath}/img/search.png" height="20px" style="vertical-align: middle;"/>
 					</form>
 				</li>

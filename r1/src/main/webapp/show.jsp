@@ -52,5 +52,6 @@
 		</c:forEach>
 	</table>
 </c:if>
+<div style="margin-top: 5%;margin-bottom:10%; "></div>
 </body>
 </html>

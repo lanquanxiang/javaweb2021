@@ -2,6 +2,7 @@ package cn.pzhu.temp;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -21,14 +22,14 @@ import cn.pzhu.util.JDBCUtil;
 /**
  * Servlet implementation class ShowServlet
  */
-@WebServlet("/show")
-public class ShowServlet extends HttpServlet {
+@WebServlet("/search")
+public class SearchServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ShowServlet() {
+    public SearchServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,32 +38,25 @@ public class ShowServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*
-		//1. 注册驱动
-		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");//mysql8.0的驱动路径 com.mysql.jdbc.Driver
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} 
-		String url="jdbc:mysql://127.0.0.1:3308/filesys?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&rewriteBatchedStatements=true";
-		String user = "root";
-		String password = "123456";
-		*/
+		
+		String keyword = request.getParameter("keyword"); //假设这个是分享者的名字
+		
 		Connection con = null;
-		Statement sta = null;
+		PreparedStatement sta = null;
 		ResultSet res = null;
 		try {
-			//2.建立连接
-			//Connection con = DriverManager.getConnection(url, user, password);		
+			//2.建立连接				
 			 con = JDBCUtil.getConnetion();
-			//System.out.println(con);
+			
 			//3.编写SQL语句
-			String sql = "SELECT * FROM filemsg";
+			String sql = "SELECT * FROM filemsg where filename like ?";
 			//4.创建命令对象
-			 sta = con.createStatement();
+			 //sta = con.createStatement();
+			sta = con.prepareStatement(sql);
+			sta.setString(1, "%"+ keyword+"%");
 			//5.查询
-			 res = sta.executeQuery(sql); //只有statement才需要SQL
+			// res = sta.executeQuery(sql); //只有statement才需要SQL
+			 res = sta.executeQuery();//执行的时候不需要SQL
 			//6.处理结果
 			List<FileMsg> list = new ArrayList<>();
 			while(res.next()) {
