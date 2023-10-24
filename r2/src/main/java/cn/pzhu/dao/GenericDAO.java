@@ -16,7 +16,7 @@ public interface GenericDAO<E,K extends Serializable> {
 	//3. 修改
 	public boolean update(E e);
 	//4. 查询（精确查找）
-	public E selectById(K e);
+	public E selectById(K k);
 	
 	
 	

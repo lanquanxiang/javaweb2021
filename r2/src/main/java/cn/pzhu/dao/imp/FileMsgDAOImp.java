@@ -26,7 +26,7 @@ public class FileMsgDAOImp implements FileMsgDAO {
 	}
 
 	@Override
-	public FileMsg selectById(Integer e) {
+	public FileMsg selectById(Integer k) {
 		// TODO Auto-generated method stub
 		return null;
 	}

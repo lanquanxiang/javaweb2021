@@ -12,7 +12,7 @@ import cn.pzhu.pojo.User;
 /**
  * Servlet implementation class LoginServlet
  */
-@WebServlet("/login")
+@WebServlet("/login.old")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -28,6 +28,8 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//[第三题：程序设计 考试复习]
+		
 		//1. 处理编码(已经在过滤器中被处理)
 		//request.setCharacterEncoding("utf-8"); //2'
 		
