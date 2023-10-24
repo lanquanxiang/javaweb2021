@@ -29,8 +29,8 @@
 			</ul>
 		</li>
 		<li>文件检索
-			<form action="" method="post" style="display: inline-block;">
-				<input type="text" style="line-height: 25px;width:150px;height: 25px;" />
+			<form action="${pageContext.request.contextPath}/search" method="post" style="display: inline-block;">
+				<input type="text" name="keyword" style="line-height: 25px;width:150px;height: 25px;" />
 				<input type="image" src="${pageContext.request.contextPath}/img/search.png" style="height: 20px;vertical-align: middle;" />
 			</form>
 		</li>

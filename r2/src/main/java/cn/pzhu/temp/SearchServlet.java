@@ -2,9 +2,10 @@ package cn.pzhu.temp;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,14 +21,14 @@ import cn.pzhu.util.JDBCUtil;
 /**
  * Servlet implementation class ShowServlet
  */
-@WebServlet("/show")
-public class ShowServlet extends HttpServlet {
+@WebServlet("/search")
+public class SearchServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ShowServlet() {
+    public SearchServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,33 +37,24 @@ public class ShowServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//1. 注册驱动
-		/*
-		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-		*/
-		//2. 创建连接
-		/*
-		String url="jdbc:mysql://127.0.0.1:3308/filesys?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&rewriteBatchedStatements=true";
-		String user = "root";
-		String password="123456";
-		*/
-		try {
-			//Connection con = DriverManager.getConnection(url, user, password);	
-			Connection con = JDBCUtil.getConnection();
-			//3. 编写SQL语句
-			String sql = "select * from filemsg";
-			//4. 创建命令对象（Statement、PreparedStatement）
-			Statement sta = con.createStatement();
-			//5. 执行命令（执行查询，执行更新）
-			ResultSet res = sta.executeQuery(sql);
-			//6. 处理结果
+		
+		String keyword = request.getParameter("keyword");
+		
+		Connection con = null;
+		//Statement sta = null;
+		PreparedStatement sta = null;
+		ResultSet res = null;		
+		try {			
+			con = JDBCUtil.getConnection();
+			// 'or'1'='1
+			String sql = "SELECT * FROM filemsg WHERE filename LIKE ?";
+			//sta = con.createStatement();
+			sta = con.prepareStatement(sql);
+			sta.setString(1, "%"+keyword+"%"); //为第一个问号赋值一个字符串
+			
+			res = sta.executeQuery();//不需要参数，如果使用了参数，会认为在调用父类Statement的方法
 			List<FileMsg> list = new ArrayList<>();
-			while(res.next()) {//循环每一行
-				//对每一行的数据进行逐个读取
+			while(res.next()) {
 				FileMsg filemsg = new FileMsg(
 						res.getInt(1), 
 						res.getString(2), 
@@ -74,20 +66,12 @@ public class ShowServlet extends HttpServlet {
 						res.getString(8));
 				list.add(filemsg);
 			}
-			//7. 释放资源（结果集→命令对象→连接）
-			/*
-			res.close();
-			sta.close();
-			con.close();
-			*/
-			JDBCUtil.close(con, sta ,res);
-			list.stream().map(FileMsg::getFilename).forEach(System.out::println);
-			
 			request.getSession().setAttribute("list", list);
 			response.sendRedirect("show.jsp");
-			
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}finally {
+			JDBCUtil.close(con, sta ,res);
 		}
 		
 		
