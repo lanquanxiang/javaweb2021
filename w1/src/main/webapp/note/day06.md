@@ -36,8 +36,8 @@
 	2. 执行更新 executeUpdate 返回的是影响的行数 int
 6. 处理结果
 	1. 结果集
-		读行：while(res.next())
-		读列：getXXX(第n列  或 列的名字) X表示类型
+		读行：很多条while(res.next()) 最多只有一条 if(res.next())
+ 		读列：getXXX(第n列  或 列的名字) X表示类型
 	2. 影响行数
 7. 释放资源
 	1. 释放的方法close
