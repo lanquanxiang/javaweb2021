@@ -2,9 +2,9 @@ package cn.pzhu.temp;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,14 +20,14 @@ import cn.pzhu.util.JDBCUtil;
 /**
  * Servlet implementation class ShowServlet
  */
-@WebServlet("/show")
-public class ShowServlet extends HttpServlet {
+@WebServlet("/search")
+public class SearchServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ShowServlet() {
+    public SearchServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,29 +36,24 @@ public class ShowServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*//1.注册驱动
-		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-		//2. 建立连接
-		String url = "jdbc:mysql://127.0.0.1:3308/filesys?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&rewriteBatchedStatements=true";
-		String user = "root";
-		String password="123456";*/
+		
+		String keyword = request.getParameter("keyword"); //接收用户输入的关键词
+		
 		Connection con = null;
-		Statement sta = null;
+		//Statement sta = null;
+		PreparedStatement sta = null;
 		ResultSet res = null;
 		try {
-			//Connection con = DriverManager.getConnection(url, user, password);
 			con = JDBCUtil.getConnection();
-			System.out.println(con);
 			//3. 编写SQL语句
-			String sql = "SELECT * FROM filemsg"; //查询filemsg表的所有信息
+			String sql = "SELECT * FROM filemsg where username=?"; //查询filemsg表的所有信息
 			//4. 创建命令对象
-			sta = con.createStatement();
+			//sta = con.createStatement();
+			sta = con.prepareStatement(sql);
 			//5. 执行SQL语句
-			res = sta.executeQuery(sql);
+			sta.setString(1, keyword);//为问号赋值
+			//res = sta.executeQuery(sql);
+			res = sta.executeQuery();
 			//6. 处理结果
 			List<FileMsg> list = new ArrayList<FileMsg>();
 			while(res.next()) {
@@ -66,12 +61,10 @@ public class ShowServlet extends HttpServlet {
 						res.getString(3), res.getString(4), res.getString(5),
 						res.getDate(6), res.getDouble(7), res.getString(8));
 				list.add(filemsg);
-			}
-			
+			}			
 			//保存所有的文件信息到session域，然后回到视图show.jsp
 			request.getSession().setAttribute("list", list);
-			response.sendRedirect("show.jsp");
-			
+			response.sendRedirect("show.jsp");			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
