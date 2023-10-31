@@ -26,3 +26,9 @@
 	ds = new ComboPooledDataSource();
 	```
 ## 3. druid[阿里巴巴]
+1. 导入jar包
+2. 编写配置文件
+3. 初始化数据源
+	```
+	ds = DruidDataSourceFactory.createDataSource(pro);
+	```
