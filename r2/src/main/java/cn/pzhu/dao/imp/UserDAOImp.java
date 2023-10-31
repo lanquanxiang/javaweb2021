@@ -13,7 +13,24 @@ public class UserDAOImp implements UserDAO{
 
 	@Override
 	public boolean add(User e) {
-		// TODO Auto-generated method stub
+		Connection con = null;
+		PreparedStatement sta = null;	
+		try {			
+			con = JDBCUtil.getConnection();
+			String sql = "insert into user values(?,?,?)";
+			sta = con.prepareStatement(sql);
+			sta.setString(1, e.getUsername()); 
+			sta.setString(2,e.getPassword());
+			sta.setInt(3, e.getStatus());
+			int n=sta.executeUpdate();
+			if(n>0) {
+				return true;
+			}			
+		} catch (SQLException ee) {
+			ee.printStackTrace();
+		}finally {
+			JDBCUtil.close(con, sta );
+		}
 		return false;
 	}
 
