@@ -13,7 +13,7 @@
 </head>
 <body>
 <jsp:include page="/common.jsp" />
-<h1 class="title">用户登录</h1>
+<h1 class="title">用户登录</h1>  
 <form action="${pageContext.request.contextPath}/login" method="post">
 	<table style="margin: auto;">
 		<tr>
