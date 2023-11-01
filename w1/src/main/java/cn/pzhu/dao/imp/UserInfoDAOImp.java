@@ -22,16 +22,13 @@ public class UserInfoDAOImp implements UserInfoDAO {
 			sta.setString(2, userinfo.getEmail());
 			sta.setInt(3,userinfo.getGender());
 			sta.setString(4, userinfo.getType());
-					
 			int m = sta.executeUpdate();
 			return m;
-			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {			
 			JDBCUtil.close(con, sta);
 		}
-		
 		return 0;
 	}
 

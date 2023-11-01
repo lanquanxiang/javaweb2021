@@ -22,10 +22,8 @@ public class UserDAOImp implements UserDAO{
 			sta.setString(1, user.getUsername());//为问号赋值
 			sta.setString(2, user.getPassword());
 			sta.setInt(3,user.getStatus());
-					
 			int n = sta.executeUpdate();
 			return n;
-			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {			
