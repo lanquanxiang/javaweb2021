@@ -25,5 +25,10 @@
 3. 加载配置文件 自动读取根目录下的c3p0-config.xml
 4. 初始化数据源 ds = new ComboPooledDataSource();
 5. 为其他程序提供数据源或者是连接
-## 3. Druid
+## 3. Druid【阿里巴巴】
+1. 导入jar包
+2. 编写配置文件
+3. 加载配置文件 
+4. 初始化数据源ds = DruidDataSourceFactory.createDataSource(pro);
+5. 为其他程序提供数据源或者是连接
 	
