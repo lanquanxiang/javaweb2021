@@ -12,8 +12,25 @@ import cn.pzhu.util.JDBCUtil;
 public class UserDAOImp implements UserDAO {
 
 	@Override
-	public boolean insert(User e) {
-		// TODO Auto-generated method stub
+	public boolean insert(User user) {
+		Connection con = null;
+		PreparedStatement sta = null;
+		try {			
+			con = JDBCUtil.getConnection();
+			String sql = "insert into user values(?,?,?)";
+			sta = con.prepareStatement(sql);//创建预编译的命令对象
+			sta.setString(1, user.getUsername());//为问号赋值
+			sta.setString(2, user.getPassword());
+			sta.setInt(3, user.getStatus());
+			int n = sta.executeUpdate();//n表示影响的行数
+			if(n!=0) {
+				return true;
+			}	
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {			
+			JDBCUtil.close(con, sta);			
+		}	
 		return false;
 	}
 

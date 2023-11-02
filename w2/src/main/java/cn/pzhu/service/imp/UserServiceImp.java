@@ -58,7 +58,7 @@ public class UserServiceImp implements UserService{
 		if(userinfo.getEmail().equals("")) {
 			return new Result(false, "邮箱不能为空！");
 		}
-		String reg="^[0-9A-z]{1,30}@[0-9A-z]{1,30}\\.[0-9A-z]$";
+		String reg="^[0-9A-z]{1,30}@[0-9A-z]{1,30}\\.[0-9A-z]{1,30}$";
 		if(!Pattern.matches(reg, userinfo.getEmail())) {
 			return new Result(false, "邮箱格式不正确！");
 		}
