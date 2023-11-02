@@ -37,7 +37,6 @@ public class DruidUtil {
 	public static DataSource getDs() {
 		return ds;
 	}
-	
 	/**
 	 * 创建了一个无参的获得连接的方法
 	 * @return
