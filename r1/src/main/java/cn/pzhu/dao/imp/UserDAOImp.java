@@ -6,11 +6,18 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
+
 import cn.pzhu.dao.UserDAO;
 import cn.pzhu.pojo.User;
+import cn.pzhu.util.DriudUtil;
 import cn.pzhu.util.JDBCUtil;
 
 public class UserDAOImp implements UserDAO{
+	
+	/*初始化jdbctemplate【考试】*/
+	private JdbcTemplate template = new JdbcTemplate(DriudUtil.getDs());
 
 	@Override
 	public int insert(User e) {
@@ -41,8 +48,8 @@ public class UserDAOImp implements UserDAO{
 
 	@Override
 	public int update(User e) {
-		// TODO Auto-generated method stub
-		return 0;
+		String sql = "update user set password=? , status=? where username=?";
+		return template.update(sql, e.getPassword(),e.getStatus(),e.getUsername());
 	}
 
 	@Override
@@ -69,8 +76,13 @@ public class UserDAOImp implements UserDAO{
 
 	@Override
 	public List<User> select() {
-		// TODO Auto-generated method stub
-		return null;
+		String sql="select * from user";
+		try {
+			return template.query(sql, new BeanPropertyRowMapper<User>(User.class));
+		} catch (Exception e) {
+			return null;
+		}
+		
 	}
 
 }

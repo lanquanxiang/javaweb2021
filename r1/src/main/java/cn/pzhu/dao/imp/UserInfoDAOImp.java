@@ -5,11 +5,17 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
+
 import cn.pzhu.dao.UserInfoDAO;
 import cn.pzhu.pojo.UserInfo;
+import cn.pzhu.util.DriudUtil;
 import cn.pzhu.util.JDBCUtil;
 
 public class UserInfoDAOImp implements UserInfoDAO{
+	
+	private JdbcTemplate template = new JdbcTemplate(DriudUtil.getDs());
 
 	@Override
 	public int insert(UserInfo e) {
@@ -47,8 +53,13 @@ public class UserInfoDAOImp implements UserInfoDAO{
 
 	@Override
 	public UserInfo selectById(String k) {
-		// TODO Auto-generated method stub
-		return null;
+		String sql="select * from userinfo where username=?";
+		try {
+			return template.queryForObject(sql, new BeanPropertyRowMapper<UserInfo>(UserInfo.class),k);
+		} catch (Exception e) {
+			return null;
+		}
+		
 	}
 
 	@Override
