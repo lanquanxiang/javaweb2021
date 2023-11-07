@@ -23,6 +23,10 @@
 			$("#note").html(data);
 		})
 	}
+	
+	function reload(){
+		$("#captcha").attr("src","captcha?time="+new Date().getTime());
+	}
 </script>
 </head>
 <body>
@@ -63,7 +67,7 @@
 		<tr>
 			<td>验证码</td>
 			<td><input type="text" name="code"/>
-				<img src="img/captcha.jpg" style="height: 25px;">
+				<img src="captcha" style="height: 25px;" title="点击刷新" onclick="reload()" id="captcha">
 			</td>
 		</tr>
 		<tr>			
