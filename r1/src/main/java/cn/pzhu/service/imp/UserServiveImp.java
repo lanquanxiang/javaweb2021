@@ -102,4 +102,13 @@ public class UserServiveImp implements UserService{
 		return null;
 	}
 
+	@Override
+	public boolean isExist(String username) {		
+		if(dao.selectById(username)==null) {
+			return false;
+		}
+		// TODO Auto-generated method stub
+		return true;
+	}
+
 }

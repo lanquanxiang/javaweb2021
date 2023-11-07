@@ -31,5 +31,6 @@ public interface UserService {
 	
 	//注销账户
 	public Message destroy(String username);
+	public boolean isExist(String username);
 
 }

@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>注册</title>
+<script type="text/javascript" src="js/jquery-3.2.0.min.js"></script>
 <style type="text/css">
 	form input[type='text'],form input[type='password']{
 		width:300px;
@@ -14,6 +15,15 @@
 		height:30px;
 	}
 </style>
+<script type="text/javascript">
+	function check(){
+		$.post('checkusername',
+		{"username":$("#username").val()},
+		function(data){
+			$("#note").html(data);
+		})
+	}
+</script>
 </head>
 <body>
 <jsp:include page="/menu.jsp"></jsp:include>
@@ -23,7 +33,7 @@
 	<table style="margin: auto;">
 		<tr>
 			<td>账号</td>
-			<td><input type="text" name="username"/></td>
+			<td><input type="text" name="username" id="username" onchange="check()"/> <span style="position: absolute;" id="note"></span> </td>
 		</tr>
 		<tr>
 			<td>密码</td>
