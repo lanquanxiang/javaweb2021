@@ -19,5 +19,6 @@ public interface UserService {
 	//注销账户
 	//注销账户的时候需要再次核对密码
 	public Result destroy(User user);
+	public boolean isExist(String username);
 	
 }

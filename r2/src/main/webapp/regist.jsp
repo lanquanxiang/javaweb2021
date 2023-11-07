@@ -3,6 +3,20 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<script type="text/javascript" src="js/jquery-3.2.0.min.js"></script>
+	<script type="text/javascript">
+		function check(){
+			$.post("checkusername",{
+				"username":$("#username").val()
+			},function(data){
+				$("#note").html(data);
+			})
+		}
+		
+		function reload(){
+			$("#captcha").attr("src","captcha?time="+new Date().getTime());
+		}
+	</script>
 <meta charset="UTF-8">
 <title>注册</title>
 </head>
@@ -14,7 +28,7 @@
 				<tr>
 					<td>账号</td>
 					<td>
-						<input type="text" name="username" />
+						<input type="text" name="username" id="username" onchange="check()"/><span id="note"></span>
 					</td>
 				</tr>
 				<tr>
@@ -50,7 +64,7 @@
 					<td>验证码</td>
 					<td>
 						<input type="text" name="code"/>
-						<img src="img/captcha.jpg" height="25px" >
+						<img src="captcha" id="captcha" height="25px" onclick="reload()" title="点击刷新" style="cursor: pointer;">
 					</td>
 				</tr>
 				<tr>
