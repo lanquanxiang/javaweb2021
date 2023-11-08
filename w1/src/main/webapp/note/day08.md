@@ -26,4 +26,4 @@
 3. 读取配置文件（自动读取c3p0-config.xml）
 4. 初始化数据源（数据库连接池） ds = new ComboPooledDataSource();
 5. 向其他模块提供数据源或者是连接
-	
+## 3. Druid

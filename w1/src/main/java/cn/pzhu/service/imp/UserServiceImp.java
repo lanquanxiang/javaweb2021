@@ -108,4 +108,12 @@ public class UserServiceImp implements UserService{
 		return false;
 	}
 
+	@Override
+	public boolean isAvaliable(String username) {
+		if(userdao.selectById(username)==null) {
+			return true;
+		}
+		return false;
+	}
+
 }

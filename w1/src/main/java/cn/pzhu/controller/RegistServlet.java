@@ -43,7 +43,10 @@ public class RegistServlet extends HttpServlet {
 		String sgender = request.getParameter("gender");
 		String [] types = request.getParameterValues("type");
 		String code = request.getParameter("code");
-		if(!"gbcw".equalsIgnoreCase(code)) {
+		
+		String ans = (String)request.getSession().getAttribute("ans");//有可能会产生异常，原因：验证码初始化失败
+		
+		if(!ans.equalsIgnoreCase(code)) {
 			request.getSession().setAttribute("msg", "验证码错误");
 			response.sendRedirect("error.jsp");
 			return;

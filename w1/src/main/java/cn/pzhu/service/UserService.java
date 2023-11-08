@@ -18,5 +18,5 @@ public interface UserService {
 	public Result changePassword(String username,String oldpassword,String newpassword);
 	//6.注销账户
 	public boolean destroy(String username);
-
+	public boolean isAvaliable(String username);
 }
