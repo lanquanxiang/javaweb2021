@@ -44,7 +44,9 @@ public class RegistServlet extends HttpServlet {
 		String sgender = request.getParameter("gender");
 		String [] types = request.getParameterValues("type");
 		String code = request.getParameter("code");
-		if (!"gbcw".equalsIgnoreCase(code)) {
+		
+		String ans = (String)request.getSession().getAttribute("ans");
+		if (!ans.equalsIgnoreCase(code)) {
 			request.getSession().setAttribute("msg", "验证码错误");
 			response.sendRedirect("error.jsp");
 			return;

@@ -18,5 +18,6 @@ public interface UserService {
 	public Result changePassword(String username,String oldpassword,String newpassword);
 	//6.注销账号
 	public boolean destroyAccount(String username);
-
+	
+	public String check(String username);
 }

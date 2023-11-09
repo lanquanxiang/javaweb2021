@@ -10,6 +10,21 @@
 		width: 300px;
 	}
 </style>
+<script src="js/jquery-3.2.0.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	function check(){
+		$.post("checkusername",
+			{username:$("input[name='username']").val()	},
+			function(data){ 
+				$('#note').html(data);
+			}
+		)
+	}
+	function change(){
+		$("#captcha").attr("src","captcha?time="+new Date().getTime());
+		
+	}
+</script>
 </head>
 <body>
 <jsp:include page="/menu.jsp"></jsp:include>
@@ -19,7 +34,8 @@
 		<tr>
 			<td>账号</td>
 			<td>
-				<input type="text" name="username"/>
+				<input type="text" name="username" onchange="check()"/>
+				<span id="note" style="position: absolute;"></span>
 			</td>
 		</tr>
 		<tr>
@@ -55,7 +71,7 @@
 			<td>验证码</td>
 			<td>
 				<input type="text" name="code"/>
-				<img src="img/captcha.jpg" height="25px" >
+				<img id="captcha" title="点击刷新" style="cursor: pointer;" src="captcha" height="25px" onclick="change()">
 			</td>
 		</tr>
 		<tr>

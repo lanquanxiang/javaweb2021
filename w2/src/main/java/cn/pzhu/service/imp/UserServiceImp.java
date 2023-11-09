@@ -100,4 +100,15 @@ public class UserServiceImp implements UserService{
 		return false;
 	}
 
+	@Override
+	public String check(String username) {
+		if(username==null||username.equals("")) {
+			return "用户名不能为空";
+		}
+		if(userdao.selectById(username)==null) {
+			return "恭喜此账号可用";
+		}
+		return "此账号已被注册";
+	}
+
 }

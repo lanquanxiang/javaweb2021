@@ -5,11 +5,16 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.springframework.jdbc.core.JdbcTemplate;
+
 import cn.pzhu.dao.UserDAO;
 import cn.pzhu.pojo.User;
+import cn.pzhu.util.DruidUtil;
 import cn.pzhu.util.JDBCUtil;
 
 public class UserDAOImp implements UserDAO {
+	
+	private JdbcTemplate template = new JdbcTemplate(DruidUtil.getDs());//初始化(考试)
 
 	@Override
 	public boolean insert(User user) {
@@ -36,8 +41,8 @@ public class UserDAOImp implements UserDAO {
 
 	@Override
 	public int update(User e) {
-		// TODO Auto-generated method stub
-		return 0;
+		String sql="update user set password=?, status=? where username=?";
+		return template.update(sql, e.getPassword(),e.getStatus(),e.getUsername());
 	}
 
 	@Override
