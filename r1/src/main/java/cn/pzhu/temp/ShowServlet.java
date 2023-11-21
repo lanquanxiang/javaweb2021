@@ -21,7 +21,7 @@ import cn.pzhu.util.JDBCUtil;
 /**
  * Servlet implementation class ShowServlet
  */
-@WebServlet("/show")
+@WebServlet("/show.old")
 public class ShowServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
