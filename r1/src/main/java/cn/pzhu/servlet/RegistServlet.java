@@ -14,6 +14,7 @@ import cn.pzhu.pojo.User;
 import cn.pzhu.pojo.UserInfo;
 import cn.pzhu.service.UserService;
 import cn.pzhu.service.imp.UserServiveImp;
+import cn.pzhu.util.Conver2MD5;
 
 /**
  * Servlet implementation class LoginServlet
@@ -50,7 +51,8 @@ public class RegistServlet extends HttpServlet {
 			return;
 		}
 		//2. 数据封装
-		User user = new User(username,password,1);//注册账号默认为1
+		String secpassword = Conver2MD5.getSHA256(Conver2MD5.getSHA256(username)+Conver2MD5.getSHA256(password));//混入用户名的加盐操作
+		User user = new User(username,secpassword,1);//注册账号默认为1
 		int gender=0;
 		try {
 			gender=Integer.valueOf(sgender);

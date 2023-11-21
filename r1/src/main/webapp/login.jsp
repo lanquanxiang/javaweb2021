@@ -23,13 +23,16 @@
 	<table style="margin: auto;">
 		<tr>
 			<td>账号</td>
-			<td><input type="text" name="username"/></td>
+			<td><input type="text" name="username" value="${cookie.username.value}"/></td>
 		</tr>
 		<tr>
 			<td>密码</td>
-			<td><input type="password" name="password"/></td>
+			<td><input type="password" name="password" value="${cookie.password.value}"/></td>
 		</tr>
-		
+		<tr>
+			<td></td>
+			<td> <input type="checkbox" name="isSave" value="yes" ${empty cookie.save.value ? "":"checked"}>保存密码</td>
+		</tr>
 		<tr>			
 			<td colspan="2" style="text-align: center;">
 				<input type="submit" value="登录" />

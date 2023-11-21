@@ -75,7 +75,7 @@ public class UserServiveImp implements UserService{
 		if(n==0||m==0) {//在实际开发过程中，如果一张表成功一张表失败，需要进行回退。
 			return new Message(false, "注册失败!");
 		}
-		return new Message(false, "注册成功!");
+		return new Message(true, "注册成功!");
 	}
 
 	@Override
