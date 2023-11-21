@@ -1,7 +1,6 @@
 package cn.pzhu.dao.imp;
 
 import java.util.List;
-
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -68,5 +67,27 @@ public class FileMsgDAOImp implements FileMsgDAO {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public List<FileMsg> selectAll(int page, int num) {
+		String sql="select * from filemsg limit ?,?";
+		try {
+			return template.query(sql, new BeanPropertyRowMapper<FileMsg>(FileMsg.class),(page-1)*num,num);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	@Override
+	public int countFileMsg() {
+		String sql="select count(*) from filemsg";
+		try {
+			return template.queryForObject(sql, Integer.class);		
+		} catch (Exception e) {
+			return 0;
+		}
+	}
+	
 
 }
