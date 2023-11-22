@@ -70,4 +70,20 @@ public class FileMsgDAOImp implements FileMsgDAO{
 		return null;
 	}
 
+	@Override
+	public List<FileMsg> selectByPage(int page, int num) {
+		String sql="select * from filemsg limit ?,?";
+		try {
+			return template.query(sql, new BeanPropertyRowMapper<FileMsg>(FileMsg.class), (page-1)*num , num);
+		} catch (Exception e) {
+			return null;//当没有结果集的时候，BeanPropertyRowMapper会抛异常，直接返回null，表示没有查到数据
+		}
+	}
+
+	@Override
+	public int selectCount() {
+		String sql = "select count(*) as count from filemsg";
+		return template.queryForObject(sql, Integer.class);
+	}
+
 }

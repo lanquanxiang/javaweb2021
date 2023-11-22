@@ -30,7 +30,24 @@
 			1. 编码cookie的值 URLEncoder
 			2. 初始化cookie
 			3. 设置有效期
-			4. 向浏览器写入 response.addCookie()
+			4. 向浏览器写入 response.addCookie();
 		2. 删除 cookie.setMaxAge(0);
 		3. 修改 cookie.setValue();
-		4. 查询
+		4. 查询 ${cookie.cookie的名字.value}
+			1. 获取所有的cookie  request.getCookies()
+			2. 遍历所有的cookie
+			3. 根据名字来查找所需要的cookie
+			4. 取值 cookie.getValue()
+			5. 解码 URLDecoder
+# 3. 分页显示
+1. 为什么？
+	1. 减轻网页渲染负担
+	2. 提高用户体验
+2. 分页方法
+	1. 逻辑分页（按需显示）
+		查询所有数据--> 根据需要截取其中一部分数据 -->显示这一部分
+	2. 物理分页（按需查询）page num
+		查询部分数据（根据需要查询）--> 显示查询结果
+		对sql进行修改，使用limit来限制查询范围
+		limit 起始位置index,length
+		SELECT * FROM filemsg LIMIT (page-1)*num,num
