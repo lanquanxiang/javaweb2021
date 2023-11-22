@@ -14,6 +14,7 @@ import cn.pzhu.pojo.User;
 import cn.pzhu.pojo.UserInfo;
 import cn.pzhu.service.UserService;
 import cn.pzhu.service.imp.UserServiceImp;
+import cn.pzhu.util.Conver2MD5;
 
 /**
  * Servlet implementation class LoginServlet
@@ -51,7 +52,12 @@ public class RegistServlet extends HttpServlet {
 			response.sendRedirect("error.jsp");
 			return;
 		}
-		User user = new User(username,password,1);
+		
+		//对密码进行加密操作(加盐操作之后的加密规则)
+		String sec_password = Conver2MD5.getSHA256(Conver2MD5.getSHA256(username) + Conver2MD5.getSHA256(password));
+		
+		
+		User user = new User(username,sec_password,1);
 		int gender = 0 ;
 		try {
 			gender = Integer.valueOf(sgender);

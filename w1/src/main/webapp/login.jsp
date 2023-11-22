@@ -30,6 +30,13 @@
 		</tr>
 		
 		<tr>
+			<td></td>
+			<td>
+				<input type="checkbox" name="save" value="yes"/>保存账号和密码7天
+			</td>
+		</tr>
+		
+		<tr>
 			<td colspan="2" style="text-align: center;">
 				<input type="submit" value="登录" style="width: 100px;height: 30px;"/>
 			</td>

@@ -11,6 +11,7 @@ import cn.pzhu.pojo.Result;
 import cn.pzhu.pojo.User;
 import cn.pzhu.service.UserService;
 import cn.pzhu.service.imp.UserServiceImp;
+import cn.pzhu.util.Conver2MD5;
 
 /**
  * Servlet implementation class LoginServlet
@@ -35,8 +36,12 @@ public class LoginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String username = request.getParameter("username");
-		String password = request.getParameter("password");		
-		User user = new User(username,password,null);
+		String password = request.getParameter("password");	
+		
+		//对密码进行加密操作
+		String sec_password =Conver2MD5.getSHA256(Conver2MD5.getSHA256(username) + Conver2MD5.getSHA256(password)) ;
+		
+		User user = new User(username,sec_password,null);
 		Result res = us.login(user);//调用业务方法执行登录
 		if(!res.isSuccess()){
 			request.getSession().setAttribute("msg", res.getMsg());

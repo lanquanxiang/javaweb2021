@@ -53,7 +53,7 @@ public class CaptchaUtil {
 		
 		this.ans = ans;
 		this.image = image;
-		
+		System.out.println(ans);
 	}
 	
 
