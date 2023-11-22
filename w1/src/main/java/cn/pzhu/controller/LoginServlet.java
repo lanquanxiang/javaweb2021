@@ -3,6 +3,7 @@ package cn.pzhu.controller;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -48,6 +49,35 @@ public class LoginServlet extends HttpServlet {
 			response.sendRedirect("error.jsp");
 			return;
 		}
+		
+		String save = request.getParameter("save");
+		if(save!=null && "yes".equals(save)) {
+			Cookie usernamecookie = new Cookie("username", username);
+			usernamecookie.setMaxAge(7*24*60*60);
+			response.addCookie(usernamecookie);
+			
+			Cookie passwordcookie = new Cookie("password", password);
+			passwordcookie.setMaxAge(7*24*60*60);
+			response.addCookie(passwordcookie);
+			
+			Cookie savecookie = new Cookie("save", "yes");
+			savecookie.setMaxAge(7*24*60*60);
+			response.addCookie(savecookie);
+			
+		}else {
+			Cookie usernamecookie = new Cookie("username", username);
+			usernamecookie.setMaxAge(0);
+			response.addCookie(usernamecookie);
+			
+			Cookie passwordcookie = new Cookie("password", password);
+			passwordcookie.setMaxAge(0);
+			response.addCookie(passwordcookie);
+			
+			Cookie savecookie = new Cookie("save", "yes");
+			savecookie.setMaxAge(0);
+			response.addCookie(savecookie);
+		}
+		
 		request.getSession().setAttribute("user", user);
 		response.sendRedirect("index.jsp");
 	}

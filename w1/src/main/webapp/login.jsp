@@ -19,20 +19,20 @@
 		<tr>
 			<td>账号</td>
 			<td>
-				<input type="text" name="username"/>
+				<input type="text" name="username" value="${cookie.username.value }"/>
 			</td>
 		</tr>
 		<tr>
 			<td>密码</td>
 			<td>
-				<input type="password" name="password"/>
+				<input type="password" name="password" value="${cookie.password.value }"/>
 			</td>
 		</tr>
 		
 		<tr>
 			<td></td>
 			<td>
-				<input type="checkbox" name="save" value="yes"/>保存账号和密码7天
+				<input type="checkbox" name="save" value="yes" ${empty cookie.save.value?"":"checked" }/>保存账号和密码7天
 			</td>
 		</tr>
 		
