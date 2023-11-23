@@ -15,7 +15,21 @@
 	1. 单行 new BeanHandler(XXX.class)--> Object
 	2. 多行 new BeanListHandler(XXX.class) --> List<Object>
 ## 3. JdbcTemplate（考试）
-1. 初始化
-2. 更新
-3. 单行读取
-4. 多行读取
+1. 初始化  private JdbcTemplate template = new JdbcTemplate(DruidUtil.getDs());
+2. 更新 int num = template.update(sql, Object... params);
+3. 单行读取 XXX object = template.queryForObject(sql,new BeanPropertyRowMapper<XXX>(XXX.class), Object... params);
+4. 多行读取List<XXX> list = (List<XXX>)  template.query(sql,new BeanPropertyRowMapper<XXX>(XXX.class), Object... params);
+
+# 3. Ajax异步请求（验证用户名是否被占用）
+1. JS事件判断用户是否已经输入完用户名 onchange
+2. 基于jQuery的Ajax  $.get()  $.post("url",jsondata,function(data){})【数据不会被缓存】
+3. 使用DOM将data显示在网页上  $("#note").html(data)
+
+# 4. 验证码
+1. 为什么需要验证码？ 防止恶意用户和机器滥用网站服务
+2. 目的：区分人和计算机
+3. 分类：
+	1. 图像（语音）识别类
+	2. 用户行为类
+	3. 逻辑推理类
+

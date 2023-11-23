@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@taglib prefix="custom"  uri="/customFunction"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,13 +21,20 @@
 		<tr>
 			<td>账号</td>
 			<td>
-				<input type="text" name="username"/>
+				<input type="text" name="username" value="${custom:decoder(cookie.username.value,'utf-8')}"/>
 			</td>
 		</tr>
 		<tr>
 			<td>密码</td>
 			<td>
-				<input type="password" name="password"/>
+				<input type="password" name="password" value="${cookie.password.value }"/>
+			</td>
+		</tr>
+		
+		<tr>
+			<td></td>
+			<td>
+				<input type="checkbox" name="save" value="1" ${empty cookie.save.value ? "":"checked" }/>保存账号和密码
 			</td>
 		</tr>
 		
