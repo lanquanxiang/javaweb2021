@@ -1,31 +1,26 @@
 package cn.pzhu.controller;
 
 import java.io.IOException;
-import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import cn.pzhu.pojo.FileMsg;
-import cn.pzhu.service.FileMsgService;
-import cn.pzhu.service.imp.FileMsgServiceImp;
+import cn.pzhu.pojo.User;
+import cn.pzhu.util.Conver2MD5;
 
 /**
- * Servlet implementation class ShowFileMsgServlet
+ * Servlet implementation class LoginServlet
  */
-@WebServlet("/show")
-public class ShowFileMsgServlet extends HttpServlet {
+@WebServlet("/loginemail")
+public class LoginEmailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
-	private FileMsgService fs = new FileMsgServiceImp();
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ShowFileMsgServlet() {
+    public LoginEmailServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,26 +29,22 @@ public class ShowFileMsgServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String spage = request.getParameter("page");
-		String snum = request.getParameter("num");
-		int page =1, num = 10;
-		try {
-			page = Integer.valueOf(spage);
-		} catch (Exception e) {
-			page =1;
-		}
-		try {
-			num = Integer.valueOf(snum);
-		} catch (Exception e) {
-			num =10;
-		}
-		List<FileMsg> list = fs.showFileMsgByPage(page, num);
 		
-		StringBuffer bar = fs.createBar(page, num, "show");
-		request.getSession().setAttribute("num", num);
-		request.getSession().setAttribute("bar", bar);
-		request.getSession().setAttribute("list", list);
-		response.sendRedirect("show.jsp");
+		
+		String username = request.getParameter("username");
+		String email = request.getParameter("email");		
+		String code = request.getParameter("code");	
+		
+		String usertoken = Conver2MD5.getSHA256(username+email+code); //用户输入的
+		String token = (String)request.getSession().getAttribute("token");//服务器发送邮件之后生成的
+		
+		if(usertoken.equals(token)) {
+			request.getSession().setAttribute("user", new User(username, token, 1));
+			response.sendRedirect("index.jsp");
+		}else {
+			request.getSession().setAttribute("msg", "登录失败");
+			response.sendRedirect("error.jsp");
+		}		
 	}
 
 	/**

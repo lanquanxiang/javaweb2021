@@ -21,4 +21,13 @@ public interface UserService {
 	public Result destroy(User user);
 	public boolean isExist(String username);
 	
+	//检验用户名和邮箱，如果数据库中存在就发送邮件
+	/***
+	 * 
+	 * @param username 用户名
+	 * @param email 邮箱
+	 * @return 如果发送成功，返回发送的验证码，用于登录校验；如果失败，返回失败的原因
+	 */
+	public Result sendEmail(String username, String email);
+	
 }

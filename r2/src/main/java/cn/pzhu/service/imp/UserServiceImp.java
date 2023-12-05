@@ -10,6 +10,7 @@ import cn.pzhu.pojo.Result;
 import cn.pzhu.pojo.User;
 import cn.pzhu.pojo.UserInfo;
 import cn.pzhu.service.UserService;
+import cn.pzhu.util.EmailUtil;
 
 public class UserServiceImp implements UserService {
 	//初始化持久层接口【考试】
@@ -106,6 +107,25 @@ public class UserServiceImp implements UserService {
 			return false;
 		}
 		return true;
+	}
+
+	@Override
+	public Result sendEmail(String username, String email) {
+		if(username==null || "".equals(username)) {
+			return new Result(false, "用户名不能为空");
+		}
+		if(email==null || "".equals(email)) {
+			return new Result(false, "邮箱不能为空");
+		}
+		UserInfo userinfo = userinfodao.selectById(username);
+		if(userinfo==null) {
+			return new Result(false, "用户不存在");
+		}
+		if(!email.equals(userinfo.getEmail())) {
+			return new Result(false, "邮箱错误");
+		}
+		
+		return EmailUtil.sendEmail(email);
 	}
 
 }

@@ -21,4 +21,7 @@ public interface FileMsgService {
 	
 	//8.按照推荐指数排序文件
 	//……
+	
+	//9. 生成导航栏
+	public StringBuffer createBar(int page,int num,String path);
 }
