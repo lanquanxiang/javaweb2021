@@ -11,6 +11,10 @@ public interface UserService {
 	//登录
 	public Message login(User user);
 	
+	public Message sendEmail(String username, String email);
+	
+	
+	
 	//注册
 	public Message regist(User user, UserInfo userinfo);
 	

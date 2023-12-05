@@ -31,7 +31,9 @@
 		</tr>
 		<tr>
 			<td></td>
-			<td> <input type="checkbox" name="isSave" value="yes" ${empty cookie.save.value ? "":"checked"}>保存密码</td>
+			<td style="position: relative;"> <input type="checkbox" name="isSave" value="yes" ${empty cookie.save.value ? "":"checked"}>保存密码
+				<a href="loginemail.jsp" style="position: absolute;right: 0px;">邮箱登录</a>
+			</td>
 		</tr>
 		<tr>			
 			<td colspan="2" style="text-align: center;">

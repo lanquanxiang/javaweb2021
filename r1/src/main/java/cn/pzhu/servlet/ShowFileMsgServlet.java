@@ -52,9 +52,11 @@ public class ShowFileMsgServlet extends HttpServlet {
 			num = 10; //如果类型转换失败，默认每页显示10条
 		}
 		
+		StringBuffer bar = PageUtil.createBar(list, page, num);
+		
 		List<FileMsg> newlist = PageUtil.getPageData(list, page, num);//将list进行分割,变成newlist
-		
-		
+		request.getSession().setAttribute("num", num);
+		request.getSession().setAttribute("bar", bar);
 		request.getSession().setAttribute("list", newlist);
 		response.sendRedirect("show.jsp");
 	}
