@@ -41,7 +41,8 @@ public class CaptchaUtil {
 		for(int j=0;j<5;j++) {
 			int x1 = random.nextInt(width/4);
 			int y1 = random.nextInt(height);
-			int x2 =  random.nextInt(width*3/4,width);
+			//int x2 =  random.nextInt(width*3/4,width);
+			int x2 =  random.nextInt(width/4)+width*3/4;
 			int y2 = random.nextInt(height);
 			graphics.drawLine(x1, y1, x2, y2);
 		}

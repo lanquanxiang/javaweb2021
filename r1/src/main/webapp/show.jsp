@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,8 +54,8 @@
 						<input type="submit" value="下载"/>
 					</form>
 				</td>
-				<td>${file.releasedate}</td>
-				<td>${file.rating}</td>
+				<td><fmt:formatDate value="${file.releasedate}" pattern="yyyy-MM-dd"/> </td>
+				<td><fmt:formatNumber value="${file.rating}" pattern=".00"></fmt:formatNumber> </td>
 				<td>${file.description}</td>
 				<td>删除 编辑</td>
 			</tr>
