@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,9 +44,19 @@ div>a{
 				<td>${file.username }</td>
 				<td class="filename">${file.filename }</td>
 				<td>${file.classification }</td>
-				<td>下载</td>
-				<td>${file.releasedate}</td>
-				<td>${file.rating }</td>
+				<td>
+					<form action="download" method="post">
+						<input type="hidden" name="filename" value="${file.filename }"> 
+						<input type="hidden" name="path" value="${file.filepath }"> 
+						<input type="submit" value="下载"> 
+					</form>
+				</td>
+				<td>
+					<fmt:formatDate value="${file.releasedate}" pattern="yyyy-MM-dd"/>
+				</td>
+				<td>
+					<fmt:formatNumber value="${file.rating }" pattern=".00"></fmt:formatNumber>
+				</td>
 				<td>${file.description }</td>
 				<td>删除 编辑</td>
 			</tr>
