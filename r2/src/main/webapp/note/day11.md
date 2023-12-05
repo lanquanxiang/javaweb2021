@@ -26,6 +26,8 @@
 5. 导入jar包
 ![](day11_files/6.jpg)
 6. 创建邮件发送工具类
+生成授权码
+![](day11_files/18.jpg)
 ![](day11_files/11.jpg)
 7. 实现发送邮件业务层
 ![](day11_files/12.jpg)
