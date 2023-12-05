@@ -29,7 +29,8 @@ public class DownloadServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String path = request.getParameter("path");		
-		FileUtil.downloadFile(path, path, response);
+		String filename = request.getParameter("filename");
+		FileUtil.downloadFile(filename, path, response);
 		
 	}
 

@@ -46,7 +46,13 @@
 				<td>${file.username}</td>
 				<td class="filename">${file.filename}</td>
 				<td>${file.classification}</td>
-				<td><a href="download?path=${file.filepath}">下载</a></td>
+				<td>
+					<form action="download" method="post">
+						<input type="hidden" name="filename" value="${file.filename}"/>
+						<input type="hidden" name="path" value="${file.filepath}"/>
+						<input type="submit" value="下载"/>
+					</form>
+				</td>
 				<td>${file.releasedate}</td>
 				<td>${file.rating}</td>
 				<td>${file.description}</td>
