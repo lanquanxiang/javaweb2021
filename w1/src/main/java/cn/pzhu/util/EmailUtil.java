@@ -26,6 +26,7 @@ public class EmailUtil {
 				code += random.nextInt(10);
 			}
 			se.setMsg("你的登录验证码是："+code);
+			se.send();
 			System.out.println(code);
 			return new Result(true, code);//返回正确的验证码，用于登录的时候验证用户输入的是否正确
 		} catch (Exception e) {

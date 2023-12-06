@@ -30,7 +30,8 @@
 2. 增加发送邮件的业务接口
 ![](day11_files/4.jpg)
 3. 实现发送邮件的工具类
-![](day11_files/5.jpg)
+![](day11_files/18.jpg)
+![](day11_files/17.jpg)
 4. 实现业务层接口
 ![](day11_files/6.jpg)
 ## 4. 实现控制器
