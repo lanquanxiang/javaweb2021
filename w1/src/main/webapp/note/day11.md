@@ -43,3 +43,24 @@
 ![](day11_files/15.jpg)
 4. 实现登录
 ![](day11_files/16.jpg)
+
+# 3. 文件上传和下载
+## 1. 文件下载
+1. 导入jar包
+![](day11_files/5.jpg)
+2. 修改下载界面show.jsp
+![](day11_files/19.jpg)
+3. 创建下载控制器
+![](day11_files/20.jpg)
+4. 实现下载
+![](day11_files/21.jpg)
+
+## 2. 文件上传（实例）
+1. 上传文件
+![](day11_files/22.jpg)
+2. 实现控制器
+![](day11_files/24.jpg)
+![](day11_files/23.jpg)
+3. 需要将路径存储到数据库中，用于之后的下载
+
+

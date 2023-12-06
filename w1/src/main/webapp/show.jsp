@@ -43,7 +43,13 @@ div>a{
 	<td>${file.username }</td>
 	<td class="filename">${file.filename }</td>
 	<td>${file.classification }</td>
-	<td>下载</td>
+	<td>
+		<form action="download" method="post">
+			<input type="hidden" name="filename" value="${file.filename }"> 
+			<input type="hidden" name="filepath" value="${file.filepath }"> 
+			<input type="submit" value="下载"> 
+		</form>
+	</td>
 	<td>${file.releasedate }</td>
 	<td>${file.rating}</td>
 	<td>${file.description }</td>
