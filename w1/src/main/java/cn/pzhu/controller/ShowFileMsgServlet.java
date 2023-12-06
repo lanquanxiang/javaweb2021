@@ -48,6 +48,10 @@ public class ShowFileMsgServlet extends HttpServlet {
 			num = 10; //如果转换失败，设置为默认值
 		}
 		List<FileMsg> list = fs.showFileMsgByPage(page, num);
+		
+		StringBuffer bar=fs.createBar(page, num);
+		request.getSession().setAttribute("bar", bar);
+		request.getSession().setAttribute("num", num);
 		request.getSession().setAttribute("list", list);
 		response.sendRedirect("show.jsp");
 	}

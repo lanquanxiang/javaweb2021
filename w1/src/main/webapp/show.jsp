@@ -20,6 +20,9 @@ td{
 tr:nth-child(2n){
 	background-color: #cdcdcd;
 }
+div>a{
+	margin: 0px 5px 0px 5px;
+}
 </style>
 </head>
 <body>
@@ -48,6 +51,14 @@ tr:nth-child(2n){
 	</tr>
 	</c:forEach>
 	</table>	
+	
+	<div style="text-align: center;margin-top: 50px;">${bar}
+		<form action="show">
+			每页显示<input type="number" name="num" min="1" max="50" value="${empty num?10:num }" /> 条
+			<input type="submit" value="确定">
+		</form>
+	</div>
+	
 </c:if>
 <div style="margin: 5% 0% 10% 0%;"></div>
 </body>

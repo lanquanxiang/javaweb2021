@@ -14,5 +14,6 @@ public interface FileMsgService {
 	//6. 修改我的分享
 	//7. 文件模糊查询
 	//8. 按照日期排序、按照推荐指数排序……
-
+	//9. 创建导航栏
+	public StringBuffer createBar(int page,int num);
 }
