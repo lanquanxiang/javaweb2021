@@ -37,7 +37,7 @@
 			<td>
 				<input type="text" name="email" id="email" style="width: 225px;"/>
 				<input type="button" value="发送验证码" onclick="send()"> 
-				<span id="msg"></span>
+				<span id="msg" style="position: absolute;"></span>
 			</td>
 		</tr>
 		<tr>

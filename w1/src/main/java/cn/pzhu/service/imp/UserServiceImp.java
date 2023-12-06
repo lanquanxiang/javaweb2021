@@ -10,6 +10,7 @@ import cn.pzhu.pojo.Result;
 import cn.pzhu.pojo.User;
 import cn.pzhu.pojo.UserInfo;
 import cn.pzhu.service.UserService;
+import cn.pzhu.util.EmailUtil;
 
 public class UserServiceImp implements UserService{
 	
@@ -121,7 +122,20 @@ public class UserServiceImp implements UserService{
 		//1. 校验数据的合法性
 		//2. 查询数据库判断用户是否存在，邮箱是否正确
 		//3. 发送邮件
-		return null;
+		if(username==null || "".equals(username)) {
+			return new Result(false, "用户名不能为空");
+		}
+		if(email==null || "".equals(email)) {
+			return new Result(false, "邮箱不能为空");
+		}
+		UserInfo userinfo = userinfodao.selectById(username);
+		if(userinfo==null) {
+			return new Result(false, "用户不存在");
+		}
+		if(!userinfo.getEmail().equals(email)) {
+			return new Result(false, "邮箱不正确");
+		}
+		return EmailUtil.sendemail(email);
 	}
 
 }
