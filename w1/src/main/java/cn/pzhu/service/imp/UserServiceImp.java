@@ -116,4 +116,12 @@ public class UserServiceImp implements UserService{
 		return false;
 	}
 
+	@Override
+	public Result sendEmail(String username, String email) {
+		//1. 校验数据的合法性
+		//2. 查询数据库判断用户是否存在，邮箱是否正确
+		//3. 发送邮件
+		return null;
+	}
+
 }

@@ -19,4 +19,7 @@ public interface UserService {
 	//6.注销账户
 	public boolean destroy(String username);
 	public boolean isAvaliable(String username);
+	
+	//7. 发送邮件
+	public Result sendEmail(String username, String email);
 }
