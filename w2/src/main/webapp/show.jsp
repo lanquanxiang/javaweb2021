@@ -20,6 +20,10 @@ td{
 tr:nth-child(2n){
 	background-color: #cdcdcd;
 }
+div>a{
+	margin: 0px 5px 0px 5px;
+	text-decoration: none;
+}
 </style>
 </head>
 <body>
@@ -48,7 +52,13 @@ tr:nth-child(2n){
 	<td>${temp.username}</td>
 	<td class="filename">${temp.filename}</td>
 	<td>${temp.classification}</td>
-	<td>下载</td>
+	<td>
+		<form action="download" method="post">
+			<input type="hidden" name = "filename" value="${temp.filename}"/>
+			<input type="hidden" name = "filepath" value="${temp.filepath}"/>
+			<input type="submit" value="下载"> 
+		</form>
+	</td>
 	<td>${temp.releasedate}</td>
 	<td>${temp.rating}</td>
 	<td>${temp.description}</td>
@@ -56,7 +66,12 @@ tr:nth-child(2n){
 	</tr>
 	</c:forEach>
 	</table>
-	<div style="text-align: center;margin-top: 30px;">${bar}</div>	
+	<div style="text-align: center;margin-top: 30px;">${bar}
+		<form action="show">
+			每页显示<input type="number" name="num" value="${empty num?10:num}">条
+			<input type="submit" value="确定">
+		</form>
+	</div>	
 </c:if>
 <div style="margin-top: 5%;margin-bottom: 10%;"></div>
 </body>

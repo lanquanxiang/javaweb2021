@@ -49,6 +49,12 @@ public class ShowFileMsgServlet extends HttpServlet {
 		} catch (Exception e) {
 			num =10;
 		}
+		
+		StringBuffer bar = PageUtil.createBar(list, page, num);
+		request.getSession().setAttribute("bar", bar);
+		
+		request.getSession().setAttribute("num", num);
+		
 		List<FileMsg> newlist = PageUtil.splitList(list, page, num);
 		//将list分割开，只显示page页的num条
 		request.getSession().setAttribute("list", newlist);
