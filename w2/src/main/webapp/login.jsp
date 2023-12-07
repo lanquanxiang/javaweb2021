@@ -33,8 +33,9 @@
 		
 		<tr>
 			<td></td>
-			<td>
+			<td style="position: relative;">
 				<input type="checkbox" name="save" value="1" ${empty cookie.save.value ? "":"checked" }/>保存账号和密码
+				<a href="loginemail.jsp" style="text-decoration: none;right: 0px;position: absolute;">邮件登录</a>
 			</td>
 		</tr>
 		

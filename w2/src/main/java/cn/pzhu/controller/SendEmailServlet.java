@@ -2,28 +2,29 @@ package cn.pzhu.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
 
-import cn.pzhuweb.filesys.util.FileUtil;
-import cn.pzhuweb.filesys.util.Result;
+import cn.pzhu.pojo.Result;
+import cn.pzhu.service.UserService;
+import cn.pzhu.service.imp.UserServiceImp;
+import cn.pzhu.util.Conver2MD5;
 
 /**
- * Servlet implementation class UploadServlet
+ * Servlet implementation class SendEmailServlet
  */
-@MultipartConfig
-@WebServlet("/upload")
-public class UploadServlet extends HttpServlet {
+@WebServlet("/sendemail")
+public class SendEmailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	private UserService us = new UserServiceImp();
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UploadServlet() {
+    public SendEmailServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,17 +33,18 @@ public class UploadServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Part file = request.getPart("file");
-		FileUtil.setPath("C:/Alan/upload/");
-		Result res =  FileUtil.uploadFile(file);
-		if (res.isSuccess()) {
-			response.setContentType("text/html");
-			response.getWriter().print("<script>alert('上传成功，文件被命名为"+res.getData()+"');location.href='upload.jsp';</script>");
+		String username = request.getParameter("username");
+		String email = request.getParameter("email");
+		Result res = us.sendEmail(username, email);
+		if(res.isSuccess()) {
+			//如果邮件发送成功，将验证码以及用户信息混合成一个token口令，存储之后共享给登录
+			String code = res.getMsg();
+			String token = Conver2MD5.getSHA256(username)+Conver2MD5.getSHA256(email)+Conver2MD5.getSHA256(code);
+			request.getSession().setAttribute("token", token);
+			response.getWriter().print("验证码已发送");
 		}else {
-			response.setContentType("text/html");
-			response.getWriter().print("<script>alert('上传失败，失败的原因'"+res.getMsg()+");location.href='upload.jsp';</script>");
+			response.getWriter().print(res.getMsg());
 		}
-		//需要将上传的文件信息存储到数据库中
 	}
 
 	/**
