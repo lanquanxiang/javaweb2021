@@ -35,7 +35,8 @@ public class LoginEmailServlet extends HttpServlet {
 		String email = request.getParameter("email");	
 		String code = request.getParameter("code");
 		
-		String usertoken = Conver2MD5.getSHA256(username)+Conver2MD5.getSHA256(email)+Conver2MD5.getSHA256(code);
+		String usertoken = Conver2MD5.getSHA256(username)+Conver2MD5.getSHA256(email)+
+							Conver2MD5.getSHA256(code);
 		
 		Object obj = request.getSession().getAttribute("token");
 		if(obj==null) {
