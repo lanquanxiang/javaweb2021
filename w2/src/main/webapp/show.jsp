@@ -55,7 +55,8 @@ tr:nth-child(2n){
 	<td>删除 修改</td>
 	</tr>
 	</c:forEach>
-	</table>	
+	</table>
+	<div style="text-align: center;margin-top: 30px;">${bar}</div>	
 </c:if>
 <div style="margin-top: 5%;margin-bottom: 10%;"></div>
 </body>
